@@ -1,0 +1,47 @@
+@import "../../../../../styles/style.mixin.scss";
+body .mat-form-field.mat-focused .mat-form-field-ripple.mat-accent {
+  background: #48c6f3 !important;
+  .container {
+    width: 85%;
+    margin: 0 auto;
+    box-shadow: none !important;
+    .mat-icon {
+      color: #171819 !important;
+      &:hover {
+        color: #48c6f3 !important;
+      }
+    }
+  }
+}
+.addNewFacilityDropdown{
+  position: relative;
+  .addNewFacilitymenu {
+    display: none;
+    position: absolute;
+    margin: $s0;
+    padding: $s0;
+    width: 150px;
+    top: $s40;
+    background: $white;
+    background-clip: padding-box;
+    border: $s1 solid #ccc;
+    border: $s1 solid #e1e2e3;
+    border-radius: $s1;
+    box-shadow: $s0 $s6 $s12 $lightGray; 
+    right: $s0;
+    padding: $s5 $s0;
+    .facilitymenuItem {
+      display: block;
+      padding: $s5 $s15;
+      text-decoration: none;
+      font-size: $s14;
+      color: $State;
+      &:hover {
+        background: $lightGray;
+      }
+    }
+    &.open {
+      display: block;
+    }
+  }
+}

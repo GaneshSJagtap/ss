@@ -1,0 +1,12 @@
+@import 'src/styles/data-tables.scss';
+@import 'src/styles/style.mixin.scss';
+@import 'src/styles/utilities.scss';
+@import 'src/styles/common.scss';
+@import 'src/styles/data-tables';
+
+html, body { height: 100%; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background: $bodyBg;
+}

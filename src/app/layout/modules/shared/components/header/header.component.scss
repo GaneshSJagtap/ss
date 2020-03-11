@@ -1,0 +1,113 @@
+@import './../../../../../../styles/style.mixin';
+
+//hamburgerIcon Css
+
+.header {
+    background: $lighterBlue;
+    section{
+      .hamburgMenu {
+        transition: all 0.5s ease;
+        &.close{
+          @include for-phone-only {
+            // margin-left: 30px;
+          }
+        }
+        // @include for-phone-only {
+        //   margin-left: 250px;
+        // }
+      }
+      height: 70px;      
+      .logged-user-info {
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 $s30 0 0;
+        transition: all 0.5s ease;
+        .userIcon {
+          height: $s40;
+          width: $s40;
+          border-radius: 100%;
+          background: #fff;
+          i {
+            font-size: $s20;
+            color: $midGray;
+          }
+        }
+        .userInfo {
+          color: $State;
+          margin: 0 $s10;
+          .userName {
+            margin: $s0;
+            white-space: nowrap;
+          }
+          .userDesignation {
+            margin: $s0;
+            font-size: $s12;
+            white-space: nowrap;
+          }
+        } 
+        .userAction {
+          position: relative;
+          a {
+            cursor: pointer;            
+            i {
+              color: $State;
+              font-size: $s18;
+            }
+          }
+          .dropdown-menu {
+            display: none;
+            position: absolute;
+            margin: $s0;
+            padding: $s0;
+            list-style: none;
+            width: 200px;
+            left: -170px;
+            top: $s44;
+            background: $white;
+            background-color: #fff;
+            -webkit-background-clip: padding-box;
+            background-clip: padding-box;
+            border: $s1 solid #ccc;
+            border: $s1 solid $lightGray;
+            border-radius: $s4;
+            -webkit-box-shadow: $s0 $s6 $s12 $lightGray;
+            box-shadow: $s0 $s6 $s12 $lightGray;
+            z-index: 999;
+            li {
+              a {
+                font-family: "Work Sans";
+                font-size: $s14;
+                font-weight: 600;
+                line-height: normal;
+                color: $defaultDisabledColor;
+                padding: $s7 $s15;
+                text-decoration: none;
+                display: block;
+                &:hover {
+                  background: $lightGray;
+                }
+              }
+            }
+            &.open {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+    &.open{
+      .logged-user-info {
+        @include for-small-phone-only{
+          opacity: 0;          
+        }
+        .userName,
+        .userDesignation {
+          white-space: nowrap;
+        }
+      }
+    }
+}
+  
+  /* Icon 2 */
+  
+  

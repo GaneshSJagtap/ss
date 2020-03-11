@@ -1,0 +1,33 @@
+<header class="header" [ngClass]="status ? 'open' : 'close'">
+    <section class="d-flex justify-content-space-between  align-items-center">
+        <div class="hamburgMenu" [ngClass]="status ? 'open' : 'close'">
+            <div class="hamburgerIcon" (click)="hamburgerIconToggle()" [ngClass]="status ? 'open' : 'close'">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="logged-user-info d-flex">
+            <div class="userIcon d-flex align-items-center justify-content-center">
+                <i aria-hidden="true" class="fa fa-user-o"></i>
+            </div>
+            <div class="userInfo">
+                <h4 class="h4 userName">John Smith</h4>
+                <p class="userDesignation">Client Admin</p>
+            </div>
+            <div class="userAction dropdown" data-toggle="dropdown">
+                <a (click)="profileDropdownMenuToggle()">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                </a>
+                <ul class="dropdown-menu" [ngClass]="dropdownStatus ? 'open' : 'close'">
+                    <li><a href="javascript:void(0);">My Profile</a></li>
+                    <li><a href="javascript:void(0);">Change Password</a></li>
+                    <li><a href="javascript:void(0);">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</header>

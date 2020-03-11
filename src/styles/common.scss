@@ -1,0 +1,227 @@
+@import './style.mixin.scss';
+
+
+.mainContainer {
+    padding: $s14 $s20 $s20 $s18;        
+    flex: 2;
+    .pageView {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        .pageTitleSection {
+            flex: 1;
+        }
+        .detailSection {
+            flex: 2;
+            box-shadow: 0px 1px 0px 1px #e6e6e6;
+        }
+    }
+}
+.mat-tab-header {
+    .mat-tab-label-container {
+        .mat-tab-list {
+            .mat-tab-label {
+                padding: $s0 $s5;
+                min-width: $s10;
+                margin: $s0 $s22;
+                @include for-phone-only {
+                    margin: 0px 2%;
+                }
+                &.mat-tab-label-active {
+                    color: $sideBarBg;
+                    opacity: 1;
+                }
+                &.cdk-focused {
+                    &.cdk-focused {
+                        &.mat-rippel-element {
+                            background: $lighterBlue;
+                        }
+                    }
+                }
+            }
+            .mat-ink-bar {
+                background: $sideBarBg;
+            }
+        }
+    }
+}
+.formSection {
+    padding: $s20 $s0;
+    .formContainer{
+        padding: $s0 $s20;
+        flex-wrap: wrap;
+        position: relative;
+        .col{
+            flex-basis: 48% !important;
+            @include for-phone-only {
+                flex-basis: 100% !important;
+            }
+            @include for-tablet {
+                flex-basis: 46% !important;
+            }   
+            &.form-group {
+                flex: 1;
+
+                .mat-form-field {
+                    width: 100%;
+                    input:-webkit-autofill {
+                        background-color: transparent !important;
+                    }
+                }
+                &.left,
+                &:first-child{
+                    padding: $s0 $s15 $s0 $s0;
+                    @include for-phone-only {
+                        padding: $s0;
+                    }
+                }
+                &.right,
+                &:last-child{
+                    padding: $s0 $s0 $s0 $s15;
+                    @include for-phone-only {
+                        padding: $s0;
+                    }
+                }
+                .mat-form-field-infix{
+                    // font-size: $s14;
+                }
+            }
+        }
+        &.cancle-save {
+            a {
+                margin: $s0 $s10 $s0 $s0;
+                font-size: $s14;
+                font-weight: $weight500;
+                cursor: pointer;
+                &.addBuilding{
+                    margin-right: auto;
+                }
+            }
+            button {
+                margin: $s0 $s0 $s0 $s10;
+            }
+        }
+    }
+}
+.mat-form-field-flex {
+    padding: 0 12px;
+    .mat-select-arrow {
+        margin: $s0 -$s4 $s0 $s0;
+    }
+}
+.mat-form-field-should-float{
+    .mat-form-field-infix {
+        .mat-label {
+            font-size: $s17 !important;
+            @include applyFont;
+        }
+    }
+}
+.mat-focused{
+    .mat-form-field-infix {
+        .mat-label {
+            font-size: $s17 !important;
+            @include applyFont;
+        }
+    }
+}
+.mat-form-field-infix {
+    .mat-label {
+        font-size: $s14 !important;
+        @include applyFont;
+    }
+    .mat-input-element,
+    .mat-select-value-text {
+        font-size: $s14 !important;
+    }
+}
+.customUploadBtn {
+    background: transparent;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    padding: $s11 $s0; 
+    .ng-hide {
+        display: none;
+    } 
+    label{
+        border-bottom: 1px solid #949494 !important;
+        display: flex;
+        width: 100%;
+        font-size: $s14;
+        // color: $lightGray;
+        padding: $s7 0; 
+        span{
+            &.browseTxt{
+                margin-left: auto;
+                color: #1277D9;
+                font-weight: $weight500;
+            }
+        }
+    }
+}
+.deleteNode { 
+    display: flex;
+    font-size: $s13;
+    color: $primaryLinkOnLightBg;
+    padding: $s0;
+    margin: $s5 $s0 $s0;
+    position: absolute;
+    right: $s0;
+    top: $s0;
+    border: 1px solid;
+    border-radius: 100%;
+    height: $s20;
+    width: $s20;
+    align-items: center;
+    justify-content: center;
+    span {
+        line-height: $s0;
+        margin-top: -$s1;
+        &.deleteFile{
+            a {
+                color: $magenta;
+                cursor: pointer;
+            }
+        }
+    }
+    &.uploadedDisplay {
+        position: static;
+        height: auto;
+        width: auto;
+        align-items: inherit;
+        justify-content: inherit;
+        border: 0;
+        span {
+        line-height: inherit;
+            &.deleteFile{
+                margin-left: auto;
+                padding-left: $s20;
+                a {
+                    color: $magenta;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+body .mat-select-panel{
+    .mat-option {
+        font-size: inherit;
+        line-height: 2em;
+        height: 2em;
+        .mat-option-text {
+            font-size: $s14;
+        }
+    }
+}
+body .mat-tab-body-content {
+    padding: 0 10px; 
+}
+.breadcrumb{
+    font-size: $s12;
+    margin: $s0 $s0 $s15 $s0;
+    a {
+        text-decoration: none;
+    }
+}

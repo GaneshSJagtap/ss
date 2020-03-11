@@ -1,0 +1,170 @@
+<div class="formSection">
+    <form [formGroup]="sensorform" (ngSubmit)="sensorformSubmit()">
+        <div class="formContainer row d-flex">
+            <div class="form-group col">
+                <mat-form-field>
+                    <mat-label class="mat-label d-flex">
+                        <span>Facility Name</span>
+                        <span class="redAsterisk">
+                            <i class="fa fa-asterisk" aria-hidden="true"></i>
+                        </span>
+                    </mat-label>
+                    <input matInput placeholder="Enter Here" />
+                </mat-form-field>
+            </div>
+            <div class="form-group col">
+                <mat-form-field>
+                    <mat-label class="mat-label d-flex">
+                        <span>Building Name</span>
+                        <span class="redAsterisk">
+                            <i class="fa fa-asterisk" aria-hidden="true"></i>
+                        </span>
+                    </mat-label>
+                    <mat-select>
+                        <mat-option>Select Form Dropdown</mat-option>
+                        <mat-option *ngFor="let buildingName of buildingNames" [value]="buildingName">
+                            {{buildingName.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="formContainer row d-flex">
+            <div class="form-group col">
+                <mat-form-field>
+                    <mat-label class="mat-label d-flex">
+                        <span>Floor Number</span>
+                        <span class="redAsterisk">
+                            <i class="fa fa-asterisk" aria-hidden="true"></i>
+                        </span>
+                    </mat-label>
+                    <input matInput placeholder="Enter Here" />
+                </mat-form-field>
+            </div>
+            <div class="form-group col">
+                <mat-form-field>
+                    <mat-label class="mat-label d-flex">
+                        <span>Floor Name</span>
+                        <span class="redAsterisk">
+                            <i class="fa fa-asterisk" aria-hidden="true"></i>
+                        </span>
+                    </mat-label>
+                    <mat-select formControlName="floornumber">
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let floor of floors" [value]="floor">
+                            {{floor.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="formContainer row d-flex">
+            <div class="form-group col">
+                <mat-form-field>
+                    <mat-label class="mat-label d-flex">
+                        <span>Room / Zone Name</span>
+                        <span class="redAsterisk">
+                            <i class="fa fa-asterisk" aria-hidden="true"></i>
+                        </span>
+                    </mat-label>
+                    <mat-select>
+                        <mat-option>Select Form Dropdown</mat-option>
+                        <mat-option *ngFor="let roomZoneName of roomZoneNames" [value]="roomZoneName">
+                            {{roomZoneName.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="form-group col">
+                <mat-form-field>
+                    <mat-label class="mat-label d-flex">
+                        <span>Sensor Name</span>
+                    </mat-label>
+                    <input matInput placeholder="Enter Here" />
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="formContainer row d-flex">
+            <div class="form-group col">
+                <mat-form-field>
+                    <mat-label class="mat-label d-flex">
+                        <span>Sensor Code</span>
+                        <span class="redAsterisk">
+                            <i class="fa fa-asterisk" aria-hidden="true"></i>
+                        </span>
+                    </mat-label>
+                    <input matInput placeholder="Enter Here" />
+                </mat-form-field>
+            </div>
+            <div class="form-group col">
+                <mat-form-field>
+                    <mat-label class="mat-label d-flex">
+                        <span>Status</span>
+                        <span class="redAsterisk">
+                            <i class="fa fa-asterisk" aria-hidden="true"></i>
+                        </span>
+                    </mat-label>
+                    <mat-select>
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let status of sensorStatus" [value]="status">
+                            {{status.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+
+
+        <div class="ngForHolder mt30" *ngFor="let formElement of  newSensorInfo">
+            <div class="formContainer row d-flex">
+                <div class="form-group col">
+                    <mat-form-field>
+                        <mat-label class="mat-label d-flex">
+                            <span>Sensor Code</span>
+                            <span class="redAsterisk">
+                                <i class="fa fa-asterisk" aria-hidden="true"></i>
+                            </span>
+                        </mat-label>
+                        <input matInput placeholder="Enter Here" />
+                    </mat-form-field>
+                </div>
+                <div class="form-group col">
+                    <mat-form-field>
+                        <mat-label class="mat-label d-flex">
+                            <span>Sensor Name</span>
+                            <span class="redAsterisk">
+                                <i class="fa fa-asterisk" aria-hidden="true"></i>
+                            </span>
+                        </mat-label>
+                        <input matInput placeholder="Enter Here" />
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="formContainer row d-flex">
+                <div class="form-group col">
+                    <mat-form-field>
+                        <mat-label class="mat-label d-flex">
+                            <span>Status</span>
+                            <span class="redAsterisk">
+                                <i class="fa fa-asterisk" aria-hidden="true"></i>
+                            </span>
+                        </mat-label>
+                        <mat-select>
+                            <mat-option>--</mat-option>
+                            <mat-option *ngFor="let status of sensorStatus" [value]="status">
+                                {{status.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="form-group col"></div>
+            </div>
+        </div>
+        <div class="formContainer row d-flex justify-content-end align-items-center cancle-save">
+            <a (click)="addSensor()" class="addBuilding"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add
+                Room / Zone</a>
+            <a (click)="cancelBuildingForm()">Cancel</a>
+            <button class="defaultBtn purpleBtn">Save</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,705 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900&display=swap');
+
+// Font weight
+
+$weight100 : 100;
+$weight200 : 200;
+$weight300 : 300;
+$weight400 : 400;
+$weight500 : 500;
+$weight600 : 600;
+$weight700 : 700;
+$weight800 : 800;
+$weight900 : 900;
+
+
+
+// Colors
+
+$black : #18191b;
+$State : #40505b;
+$midGray : #6E7881;
+$lightGray : #e1e2e3;
+$white : #ffffff;
+$lightBlue: #a2ddf9; 
+$lighterBlue: #cdecff; 
+$Blue : #4dc5f2;
+$magenta : #cc1b98;
+$bodyBg : #f5f9fa;
+$sideBarBg : #1177d9;
+$placeholderColor : #9fb6c1;
+$tableHeaderBg : #f2f2f2;
+$tableBorderColor : #e5e5e5;
+$tableOddRowBg : #f7f7f7;
+
+// Buttons color
+
+
+$defaultBG: #D71996; 
+$defaultHover: #961169; 
+$defaultDisabledColor: #767676;
+$defaultDisabledBG: #D1D1D1; 
+$default1BorderAndHover: #1277D9; 
+
+// Links color
+
+$primaryLinkOnLightBg: #1277D9;  
+$primaryLinkOnLightHover: #0b4a87;  
+$secondaryLinkOnLightBg: #BB1681;  
+$secondaryLinkOnLightHover: #961169;  
+
+$primaryLinkOnDarkBg: #43CDF8;  
+$primaryLinkOnDarkHover: #A2DDF9;  
+$secondaryLinkOnDarkBg: #E1E2E3;  
+$secondaryLinkOnDarkHover: #A2DDF9;  
+$default2Hover:  #0B4A87;
+
+
+// border style 
+
+$border1px : 1px solid transparent;
+$border2px : 2px solid transparent;
+$border3px : 3px solid transparent;
+$border4px : 4px solid transparent;
+$border5px : 5px solid transparent;
+
+
+
+// input color
+
+
+
+// Semantic colors
+
+$pending : #B53CDE;
+$start : #71ade8;
+$completed : #1277D9;
+$success : #218666;
+$warning : #f4b836;
+$fail : #f3305d;
+
+// Typography
+
+$WorkSansThin : 'work_sansthin';
+$WorkSansExtraLight : 'work_sansextralight';
+$WorkSansLight : 'work_sanslight';
+$WorkSansRegular : 'work_sansregular';
+$WorkSansMedium : 'work_sansmedium';
+$WorkSansSemiBold : 'work_sanssemibold';
+$WorkSansBold : 'work_sansbold';
+@mixin applyFont($fontFamily: 'Work sans', $fontSize: 13px, $fontWeight: normal, $lineHeight: normal) {
+  font-family: $fontFamily;
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  line-height: $lineHeight;
+}
+
+
+
+// Size
+
+$s0 : 0px;
+$s1 : 1px;
+$s2 : 2px;
+$s3 : 3px;
+$s4 : 4px;
+$s5 : 5px;
+$s6 : 6px;
+$s7 : 7px;
+$s8 : 8px;
+$s9 : 9px;
+$s10 : 10px;
+$s11 : 11px; 
+$s12 : 12px;
+$s13 : 13px;
+$s14 : 14px;
+$s15 : 15px;
+$s16 : 16px;
+$s17 : 17px;
+$s18 : 18px;
+$s19 : 19px;
+$s20 : 20px;
+$s21 : 21px;
+$s22 : 22px;
+$s23 : 23px;
+$s24 : 24px;
+$s25 : 25px;
+$s26 : 26px;
+$s27 : 27px;
+$s28 : 28px;
+$s29 : 29px;
+$s30 : 30px;
+$s31 : 31px;
+$s32 : 32px;
+$s33 : 33px;
+$s34 : 34px;
+$s35 : 35px;
+$s36 : 36px;
+$s37 : 37px;
+$s38 : 38px;
+$s39 : 39px;
+$s40 : 40px;
+$s41 : 41px;
+$s42 : 42px;
+$s43 : 43px;
+$s44 : 44px;
+$s45 : 45px;
+$s46 : 46px;
+$s47 : 47px;
+$s48 : 48px;
+$s49 : 49px;
+$s50 : 50px;
+
+// Text Format 
+
+$uppercase : uppercase;
+$lowercase : lowercase;
+$capitalize : capitalize;
+$none : none;
+$unset: unset;
+
+// Placeholder
+
+@mixin input-placeholder {
+  &.placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}
+
+
+
+
+// Medai query mixin
+
+
+@mixin for-small-phone-only {
+  @media (min-width: 320px) and (max-width: 479px) { @content; }
+}
+@mixin for-phone-only {
+  @media (min-width: 320px) and (max-width: 767px) { @content; }
+}
+@mixin phone-portrait {
+  @media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) { @content; }
+}
+@mixin phone-landscape {
+  @media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) { @content; }
+}
+@mixin for-tablet {
+  @media (min-width: 768px) and (max-width: 1024px) { @content; }
+}
+@mixin tablet-portrait {
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation : 'portrait') { @content; }
+}
+@mixin tablet-landscape {
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation : 'landscape') { @content; }
+}
+@mixin for-small-desktop {
+  @media (min-width: 1025px) and (max-width: 1279px) { @content; }
+}
+@mixin for-md-desktop {
+  @media (min-width: 1280px) and (max-width: 1365px) { @content; }
+}
+@mixin for-lg-desktop {
+  @media (min-width: 1366px) and (max-width: 1599px) { @content; }
+}
+@mixin for-xl-desktop {
+  @media (min-width: 1600px) { @content; }
+}
+
+
+
+@function z($name) {
+  @if index($z-indexes, $name) {
+      @return (length($z-indexes) - index($z-indexes, $name)) + 1;
+  } @else {
+      @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+      @return null;
+  }
+}
+
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+
+$z-indexes: (
+  "outdated-browser",
+  "modal",
+  "site-header",
+  "page-wrapper",
+  "site-footer"
+);
+
+
+// :before and :after
+
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+// Typography
+body {
+  font-family: 'Work Sans' !important;
+  background: $bodyBg;
+}
+
+.test {
+  ::after {
+    @include pseudo(block, absolute, '');
+  }
+}
+
+.h1 {
+  font-size: $s20;
+  font-family: 'Work Sans';
+  font-weight: $weight600;
+}
+.h2 {
+  font-size: $s18;
+  font-family: 'Work Sans';
+  font-weight: $weight600;
+}
+.h3 {
+  font-size: $s16;
+  font-family: 'Work Sans';
+  font-weight: $weight600;
+}
+.h4 {
+  font-size: $s14;
+  font-family: 'Work Sans';
+  font-weight: $weight600;
+}
+.h5 {
+  font-size: $s16;
+  font-family: 'Work Sans';
+  font-weight: $weight600;
+  text-transform: $uppercase;
+}
+.h6 {
+  font-size: $s13;
+  font-family: 'Work Sans';
+  font-weight: $weight600;
+  text-transform: $uppercase;
+}
+a {
+  color: $primaryLinkOnLightBg;
+}
+.mt30 {
+  margin-top: $s30;
+}
+.primaryLinkOnLightBg {
+  color: $primaryLinkOnLightBg;
+  &:hover {
+    color: $primaryLinkOnLightHover;
+    text-decoration: underline;
+  }
+}
+.secondaryLinkOnLightBg {
+  color: $secondaryLinkOnLightBg;
+  &:hover {
+    color: $secondaryLinkOnLightHover;
+    text-decoration: underline;
+  }
+}
+.primaryLinkOnDarkBg {
+  color: $primaryLinkOnDarkBg;
+  &:hover {
+    color: $primaryLinkOnDarkHover;
+    text-decoration: underline;
+  }
+}
+.secondaryLinkOnDarkBg {
+  color: $secondaryLinkOnDarkBg;
+  &:hover {
+    color: $secondaryLinkOnDarkHover;
+    text-decoration: underline;
+  }
+}
+
+// Buttons 
+
+.defaultBtn {
+  font-size: $s13;
+  padding: $s10 $s20; 
+  border-radius: 5px; 
+  min-width:70px;
+  border: 0;
+  font-family: 'Work Sans';
+  font-weight: $weight600;
+  cursor: pointer;
+  &.purpleBtn {  
+    background: $defaultBG;
+    color: $white;
+    border: $border2px;
+    &:hover {
+      background: $defaultHover;
+    }
+    &.disabled {
+      background: $defaultDisabledBG; 
+      color: $defaultDisabledColor;
+      cursor: not-allowed;
+    }
+  }
+  &.blueBorderBtn {  
+    background: $white;
+    color: $default1BorderAndHover;
+    border: 2px solid $default1BorderAndHover;
+    &:hover {
+      color: $white;
+      background: $default1BorderAndHover;
+    }
+    &.disabled {
+      border-color: $defaultDisabledBG; 
+      color: $defaultDisabledColor;
+      background: $white;
+      cursor: not-allowed;
+    }
+  }
+  &.bluBgBtn{
+    background: $default1BorderAndHover;
+    color: $white;
+    border: $border2px;
+    &:hover {
+      background: $primaryLinkOnLightHover;      
+    }
+    &.disabled {
+      background: $defaultDisabledBG; 
+      color: $defaultDisabledColor;
+      cursor: not-allowed;
+    }
+  }&.pending {
+    background: $pending;
+    color: $white;
+    border: $border2px;
+    &:hover {
+      background: $white;
+      border-color: $pending;
+      color: $pending
+    }
+  }&.start {
+    background: $start;
+    color: $white;  
+    border: $border2px;
+    &:hover {
+      background: $white;
+      border-color: $start;
+      color: $start
+    }
+  }&.completed {
+    background: $completed;
+    color: $white;
+    border: $border2px;
+    &:hover {
+      background: $white;
+      border-color: $completed;
+      color: $completed
+    }
+  }&.success {
+    background: $success;
+    color: $white;
+    border: $border2px;
+    &:hover {
+      background: $white;
+      border-color: $success;
+      color: $success
+    }
+  }&.warning {
+    background: $warning;
+    color: $white;
+    border: $border2px;
+    &:hover {
+      background: $white;
+      border-color: $warning;
+      color: $warning
+    }
+  }&.fail {
+    background: $fail;
+    color: $white;
+    border: $border2px;
+    &:hover {
+      background: $white;
+      border-color: $fail;
+      color: $fail
+    }
+  }
+  &:focus {
+    outline: transparent;
+  }
+  &:before,
+  &:after {
+    display: block;
+    content: '';
+  }
+}
+
+.d-flex{
+  display: flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  &.flex-direction-column {
+    flex-direction: column;
+    .mt-auto{
+      margin-top: auto;
+    }
+  }
+  &.flex-direction-row {
+    flex-direction: row
+  }
+  &.flex-wrap{ 
+    flex-wrap: wrap;
+  }
+  &.align-items-end{
+    align-items: flex-end;
+  }
+  &.align-items-start{
+    align-items: flex-start;
+  }
+  &.align-items-stretch{
+    align-items: stretch;
+  }
+  &.align-items-center{
+    align-items: center;
+  }  
+  &.justify-content-end{
+    justify-content: flex-end;
+  }
+  &.justify-content-start{
+    justify-content: flex-start;
+  }
+  &.justify-content-space-between {
+    justify-content: space-between;    
+  }
+  &.justify-content-space-evenly{
+    justify-content: space-evenly;
+  }
+  &.justify-content-center{
+    justify-content: center;
+  }
+  .flex-grow-1 {
+    flex-grow: 1;
+  }
+  .flex-grow-2 {
+    flex-grow: 2;
+  }
+  .flex-grow-3 {
+    flex-grow: 3;
+  }
+  .flex-grow-4 {
+    flex-grow: 4;
+  }
+}
+
+// Table css
+
+.pageView {
+  .pageTitleSection {            
+      .h1 {
+          margin: $s0 $s0 $s5 $s0; 
+      }
+  }
+  // .pageDetailSection {
+
+  // }
+}
+
+.hamburgMenu {
+  margin: $s0 $s0 $s0 $s20;
+  .hamburgerIcon {
+     width: $s25;
+     height: $s20;
+     position: relative;
+     margin: $s0;
+     -webkit-transform: rotate(0deg);
+     -moz-transform: rotate(0deg);
+     -o-transform: rotate(0deg);
+     transform: rotate(0deg);
+     -webkit-transition: .5s ease-in-out;
+     -moz-transition: .5s ease-in-out;
+     -o-transition: .5s ease-in-out;
+     transition: .5s ease-in-out;
+     cursor: pointer;
+     span {
+       display: block;
+       position: absolute;
+       height: $s3;
+       width: 50%;
+       background: #333;
+       opacity: 1;
+       -webkit-transform: rotate(0deg);
+       -moz-transform: rotate(0deg);
+       -o-transform: rotate(0deg);
+       transform: rotate(0deg);
+       -webkit-transition: .25s ease-in-out;
+       -moz-transition: .25s ease-in-out;
+       -o-transition: .25s ease-in-out;
+       transition: .25s ease-in-out;
+       &:nth-child(even) {
+         left: 50%;
+         border-radius: $s0 $s9 $s9 $s0;
+       }
+       &:nth-child(odd) {
+         left: $s0;
+         border-radius: $s9 $s0 $s0 $s9;
+       }
+       &:nth-child(1),&:nth-child(2) {
+         top: $s0;
+       }
+       &:nth-child(3),&:nth-child(4) {
+         top: $s7;
+       }
+       &:nth-child(5),&:nth-child(6) {
+         top: $s14;
+       }
+     }
+     &.open{
+         span{
+             &:nth-child(1),&:nth-child(6) {
+               -webkit-transform: rotate(45deg);
+               -moz-transform: rotate(45deg);
+               -o-transform: rotate(45deg);
+               transform: rotate(45deg);
+             }
+             &:nth-child(2),&:nth-child(5) {
+               -webkit-transform: rotate(-45deg);
+               -moz-transform: rotate(-45deg);
+               -o-transform: rotate(-45deg);
+               transform: rotate(-45deg);
+             }
+             &:nth-child(1) {
+               left: $s1;
+               top: $s3;
+             }
+             &:nth-child(2) {
+               left: calc(50% - 5px);
+               top: $s3;
+             }
+             &:nth-child(3) {
+               left: -50%;
+               opacity: 0;
+             }
+             &:nth-child(4) {
+               left: 100%;
+               opacity: 0;
+             }
+             &:nth-child(5) {
+               left: $s1;
+               top: $s10;
+             }
+             &:nth-child(6) {
+               left: calc(50% - 5px);
+               top: $s10;
+             }
+         }
+     }
+   }
+
+}
+
+.detailSection {
+  background: $white;
+  padding: $s20;
+  @include for-phone-only {
+    padding: $s0;
+  }
+  .search-addnew-section {
+    @include for-small-phone-only {
+      flex-wrap: wrap;
+      padding: $s10;
+    }
+    margin-bottom: $s10;
+    .search-input {
+      max-width: 195px;
+      border-bottom: $s1 solid $placeholderColor;
+      padding: $s0 $s0 $s5 $s0;
+      margin: $s0 $s20 $s0 $s0;
+      span {
+        padding: $s0 $s5 $s0 $s0;
+        .ng-fa-icon {
+          font-size: $s14;
+          color: $midGray;
+        }
+      }
+      input {
+        border: $s0;
+        @include input-placeholder {
+            color: $placeholderColor;
+        }
+        &:focus{
+          outline: transparent;
+        }
+      }
+      @include for-small-phone-only {
+        order: 2; 
+      }
+    }
+    .add-new {
+      color: #000;
+      @include for-small-phone-only {
+        order: 1; 
+      }
+    }
+  }
+
+}
+.dataTable{
+  .mat-table {
+    border: $s1 solid $tableBorderColor;
+    border-bottom: $s0;
+    .mat-header-row {
+      background: $tableHeaderBg;
+      .mat-header-cell {
+        font-size: $s14;
+        font-weight: $weight500;
+        color: $State;
+        .actionTitle {
+          padding: $s0 $s0 $s0 $s6; 
+        }
+        &:first-child {
+          flex:0;
+        }
+        &:last-child {
+          flex:0.6;
+        }
+      }
+    }
+    .mat-row {
+      &.ng-star-inserted {
+        min-height: 30px;
+        .mat-cell {
+          &:first-child {
+            flex: 0;
+          }
+          &:last-child {
+            flex:0.6;
+          }
+          .mat-icon-button {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            .mat-button-wrapper {
+              .fa {
+                color: $State;
+                font-size: $s15;
+              }
+            }
+          }
+        }
+      }
+      &:nth-child(odd){
+        background: $tableOddRowBg;
+      }
+    }
+  }
+}
+.redAsterisk {
+  color: red;
+  font-size: $s6;
+}

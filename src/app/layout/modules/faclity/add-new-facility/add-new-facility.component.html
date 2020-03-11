@@ -1,0 +1,30 @@
+<div class="pageView">
+    <div class="pageTitleSection">
+        <h1 class="h1">{{title}}</h1>
+        <p class="breadcrumb"><a routerLink="/facility">Facility Setup</a> / Add Facility</p>
+    </div>
+    <section class="detailSection addNewFacility">
+        <section class="addNewFacility--container">
+            <mat-tab-group>
+                <mat-tab label="Facility">
+                    <app-addfacility></app-addfacility>
+                </mat-tab>
+                <mat-tab label="Building">
+                    <app-addbuilding></app-addbuilding>
+
+                </mat-tab>
+                <mat-tab label="Floor">
+                    <app-addfloor></app-addfloor>
+                </mat-tab>
+                <mat-tab label="Zone">
+                    <app-addzone></app-addzone>
+                </mat-tab>
+                <mat-tab label="Sensor">
+                    <app-addsensor></app-addsensor>
+                </mat-tab>
+            </mat-tab-group>
+
+
+        </section>
+    </section>
+</div>

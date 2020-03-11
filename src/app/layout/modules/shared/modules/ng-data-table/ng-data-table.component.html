@@ -1,0 +1,40 @@
+<div class="ng-data-table-wrap">
+    <div class="top-toolbar-wrap">
+        <div class="extra-toolbar">
+            <ng-content select="[button-toolbar]"></ng-content>
+        </div>
+        <div class="all-search-box" *ngIf="searchBox">
+            <label><input type="search" placeholder="Search" (keyup)="search()" #filterInputs /></label>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th *ngFor="let column of columns; let i = index">
+                    <div>
+                    {{column.title}}
+                    </div>
+                </th>
+                <th>
+                Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of rows; let i = index;">
+                <td *ngFor="let column of columns">
+                    <div>
+                        {{echo(row, column)}}
+                    </div>
+                </td>
+                <td>
+                <i *ngIf="showEdit" class="fa fa-pencil-square-o" aria-hidden="true" (click)="edit(row)"></i>
+                <!-- <i *ngIf="showView" class="fa fa-eye" aria-hidden="true" (click)="showDetails(row)"></i>
+                <i class="fa fa-trash" aria-hidden="true"></i>  -->
+                x
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

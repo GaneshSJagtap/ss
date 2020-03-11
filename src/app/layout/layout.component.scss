@@ -1,0 +1,62 @@
+@import './../../styles/style.mixin';
+
+.wrap {
+    min-height: 100%;
+    .sideBar{
+        flex-basis: 64px;
+        max-width: 64px;
+        transition: 0.5s ease all;
+        &.open{
+            flex-basis: 230px;
+            max-width: 230px;
+            for-phone-only {
+                flex-basis: 230px;
+                max-width: 230px;
+            }
+        }
+        @include for-phone-only {
+            &.close {
+            flex-basis: 64px;
+            max-width: 64px;
+            }
+            &.open{
+                @include for-phone-only {
+                    flex-basis: 230px;
+                    max-width: 230px;
+                }
+            }
+        }
+    }
+    .mainContainerHolder{
+        transition: all 0.5s ease;
+        .mainContainer {
+            padding: $s14 $s20 $s20 $s18;        
+            @include for-phone-only {
+                padding: $s14 $s10;        
+            }
+            flex: 2;
+            .pageView {
+                height: 100%;
+            }
+        }
+        .footer {
+            text-align: center;
+            font-size: $s14;
+            font-family: 'Work Sans';
+            font-weight: $weight400;    
+            color: $State;
+            @include for-phone-only {
+                padding: $s14 $s20;        
+            }
+        }    
+        // @include for-phone-only {
+            //     position: relative;
+            //     z-index: 1;
+            // }
+        }
+        &.open {
+            @include for-phone-only {
+                overflow: hidden;
+            }            
+        }    
+}

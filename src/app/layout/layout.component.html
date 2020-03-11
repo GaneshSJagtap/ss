@@ -1,0 +1,16 @@
+<section class="wrap d-flex align-items-stretch" [ngClass]="collapsedWindow ? 'close' : 'open'">
+    <section class="flex-grow-1 sideBar" [ngClass]="collapsedWindow ? 'close' : 'open'">
+        <app-sidebar></app-sidebar>
+    </section>
+    <section class="flex-grow-2 d-flex flex-direction-column mainContainerHolder"
+        [ngClass]="collapsedWindow ? 'close' : 'open'">
+        <app-header></app-header>
+        <section class="mainContainer d-flex flex-direction-column">
+            <router-outlet></router-outlet>
+        </section>
+        <section class="footer mt-auto">
+            <app-footer></app-footer>
+        </section>
+    </section>
+
+</section>

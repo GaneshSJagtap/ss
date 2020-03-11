@@ -1,0 +1,17 @@
+@import './../../../../../styles/style.mixin.scss';
+
+.detailSection {
+    &.addNewFacility {
+        text-align: left;
+        padding: $s0;
+    }
+    .form-group {
+        .mat-form-field-label {
+            .mat-label {
+                .redAsterisk {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

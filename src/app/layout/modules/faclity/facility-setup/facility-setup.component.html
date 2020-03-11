@@ -1,0 +1,28 @@
+<div class="pageView">
+  <div class="pageTitleSection">
+    <h1 class="h1">{{title}}</h1>
+  </div>
+  <section class="detailSection">
+    <div class="search-addnew-section d-flex justify-content-end">
+      <div class="search-input form-group d-flex align-items-end">
+        <span>
+          <fa-icon [icon]="faSearch"></fa-icon>
+        </span>
+        <input matInput #filter placeholder="Search" />
+      </div>
+      <div class="add-new">
+        <div class="addNewFacilityDropdown">
+          <button class="defaultBtn purpleBtn" (click)="toggleDropdown()" (clickOutside)="onClickedOutside($event)">Add
+            New</button>
+          <div class="addNewFacilitymenu" [ngClass]="status ? 'open' : 'close'">
+            <a class="facilitymenuItem" href="#">Upload List</a>
+            <a class="facilitymenuItem" routerLink="/facility/add-facility">Manual</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <!-- <app-ng-data-table [columns]="columns" [rows]="policys"></app-ng-data-table> -->
+    </div>
+  </section>
+</div>
