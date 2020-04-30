@@ -1,0 +1,132 @@
+@import "../../../../styles/style.mixin.scss";
+
+.add-clientFrom {
+  .h4 {
+    color: $State;
+    margin-bottom: $s0;
+    font-size: $s16;
+  }
+  .form-group {
+    margin-right: 30px;
+    .add-address {
+      font-size: $s14;
+      margin-top: auto;
+      margin-bottom: 25px;
+      padding-left: 10px;
+      position: relative;
+      .mapPointer-icon {
+        color: $midGray;
+        position: absolute;
+        left: -10px;
+      }
+    }
+  }
+}
+
+.themes {
+  margin-top: $s15;
+  a {
+    color: $darkGray;
+    font-size: $s20;
+  }
+  ul {
+    margin: $s0;
+    padding: $s0;
+    list-style: none;
+    display: flex;
+    li {
+      margin: $s0 $s7;
+      .theme {
+        border: 1px dashed #9db4c1;
+        border-radius: 5px;
+        padding: $s11 $s10;
+        font-size: $s14;
+        cursor: pointer;
+        p {
+          margin: $s0 $s0 $s5 $s0;
+          color: $State;
+          &:first-child {
+            font-weight: 500;
+          }
+          &.themeColor {
+            display: flex;
+            span {
+              &:first-child {
+                margin-left: $s0;
+              }
+              width: $s30;
+              height: $s8;
+              margin: $s0 $s2;
+            }
+          }
+          &.font {
+            span {
+              font-weight: 500;
+            }
+          }
+          &.Select {
+            text-align: center;
+            color: $semiLightBlue;
+            font-weight: 500;
+          }
+        }
+        &.seleted,
+        &:hover {
+          border-color: #1186c8;
+          background: #ecfcff;
+        }
+      }
+      &:first-child {
+        margin-left: $s0;
+      }
+      &:last-child {
+        margin-right: $s0;
+      }
+    }
+  }
+}
+.upload {
+  position: relative;
+  input {
+    position: absolute;
+    opacity: 0;
+    left: -999px;
+  }
+}
+.brandingInfo {
+  margin-top: $s20;
+  .logogAndFavicon {
+    .logoLink {
+      .form-group {
+        flex-basis: 100%;
+        margin: $s0;
+        .mat-form-field {
+          width: 100%;
+        }
+      }
+    }
+    // flex-grow: 1;
+  }
+  .bannerOuter {
+    .form-group {
+      flex-basis: 50%;
+      &:last-child {
+        margin: $s0;
+      }
+      .mat-form-field {
+        width: 100%;
+      }
+    }
+  }
+  .logoHolder {
+    margin: $s0 $s0 $s0 $s10;
+    padding: $s8 $s0 $s8 $s10;
+    &.bannerHolder {
+      padding: $s0;
+      margin: $s0 $s0 -4px $s0;
+    }
+  }
+  .actionIcons {
+    margin: $s0 $s15;
+  }
+}

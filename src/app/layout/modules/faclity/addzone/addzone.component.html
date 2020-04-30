@@ -9,7 +9,10 @@
                             <i class="fa fa-asterisk" aria-hidden="true"></i>
                         </span>
                     </mat-label>
-                    <input matInput placeholder="Enter Here" />
+                    <input matInput formControlName="facilityId" placeholder="Enter Here" />
+                    <!-- <mat-error *ngIf="facilityId.hasError('required')">
+                        Facility is<strong>required</strong>
+                    </mat-error> -->
                 </mat-form-field>
             </div>
             <div class="form-group col">
@@ -17,98 +20,61 @@
                     <mat-label class="mat-label d-flex">
                         <span>Building Name</span>
                     </mat-label>
-                    <mat-select>
+                    <mat-select formControlName="buildingId">
                         <mat-option>Select Form Dropdown</mat-option>
                         <mat-option *ngFor="let buildingName of buildingNames" [value]="buildingName">
                             {{buildingName.name}}
                         </mat-option>
                     </mat-select>
+                    <!-- <mat-error *ngIf="buildingId.hasError('required')">
+                        Please select <strong>building</strong> from list
+                    </mat-error> -->
                 </mat-form-field>
             </div>
         </div>
-        <div class="formContainer row d-flex">
-            <div class="form-group col">
-                <mat-form-field>
-                    <mat-label class="mat-label d-flex">
-                        <span>Floor</span>
-                        <span class="redAsterisk">
-                            <i class="fa fa-asterisk" aria-hidden="true"></i>
+        <div formArrayName="zoneDetails">
+            <div *ngFor="let formElement of zoneFormGroup.controls; let i = index">
+                <div class="formContainer row d-flex" [formGroupName]="i" [ngClass]="i > 0 ? 'mt30' : 'null'">
+                    <div class="form-group col left">
+                        <mat-form-field>
+                            <mat-label class="mat-label d-flex">
+                                <span>Floor</span>
+                                <span class="redAsterisk">
+                                    <i class="fa fa-asterisk" aria-hidden="true"></i>
+                                </span>
+                            </mat-label>
+                            <mat-select formControlName="floornumber">
+                                <mat-option>--</mat-option>
+                                <mat-option *ngFor="let floor of floors" [value]="floor">
+                                    {{floor.name}}
+                                </mat-option>
+                            </mat-select>
+                            <!-- <mat-error *ngIf="floornumber.hasError('required')">
+                                Please select <strong>floor number</strong> from list
+                            </mat-error> -->
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group col right">
+                        <mat-form-field>
+                            <mat-label class="mat-label d-flex">
+                                <span>Room / Zone</span>
+                                <span class="redAsterisk">
+                                    <i class="fa fa-asterisk" aria-hidden="true"></i>
+                                </span>
+                            </mat-label>
+                            <input matInput formControlName="roomZone" placeholder="Enter Here" />
+                            <!-- <mat-error *ngIf="roomZone.hasError('required')">
+                                Room / Zone is <strong>required</strong>
+                            </mat-error> -->
+                        </mat-form-field>
+                    </div>
+                    <p class="deleteNode" *ngIf="i > 0">
+                        <span class="deleteFile">
+                            <a onclick="this.parentElement.parentElement.parentElement.remove();">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            </a>
                         </span>
-                    </mat-label>
-                    <mat-select formControlName="floornumber">
-                        <mat-option>--</mat-option>
-                        <mat-option *ngFor="let floor of floors" [value]="floor">
-                            {{floor.name}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
-            <div class="form-group col">
-                <mat-form-field>
-                    <mat-label class="mat-label d-flex">
-                        <span>Room / Zone</span>
-                        <span class="redAsterisk">
-                            <i class="fa fa-asterisk" aria-hidden="true"></i>
-                        </span>
-                    </mat-label>
-                    <input matInput placeholder="Enter Here" />
-                </mat-form-field>
-            </div>
-        </div>
-        <div class="ngForHolder mt30" *ngFor="let formElement of  newZoneInfo">
-            <div class="formContainer row d-flex">
-                <div class="form-group col">
-                    <mat-form-field>
-                        <mat-label class="mat-label d-flex">
-                            <span>Facility Name</span>
-                            <span class="redAsterisk">
-                                <i class="fa fa-asterisk" aria-hidden="true"></i>
-                            </span>
-                        </mat-label>
-                        <input matInput placeholder="Enter Here" />
-                    </mat-form-field>
-                </div>
-                <div class="form-group col">
-                    <mat-form-field>
-                        <mat-label class="mat-label d-flex">
-                            <span>Building Name</span>
-                        </mat-label>
-                        <mat-select>
-                            <mat-option>Select Form Dropdown</mat-option>
-                            <mat-option *ngFor="let buildingName of buildingNames" [value]="buildingName">
-                                {{buildingName.name}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>
-            </div>
-            <div class="formContainer row d-flex">
-                <div class="form-group col">
-                    <mat-form-field>
-                        <mat-label class="mat-label d-flex">
-                            <span>Floor</span>
-                            <span class="redAsterisk">
-                                <i class="fa fa-asterisk" aria-hidden="true"></i>
-                            </span>
-                        </mat-label>
-                        <mat-select formControlName="floornumber">
-                            <mat-option>--</mat-option>
-                            <mat-option *ngFor="let floor of floors" [value]="floor">
-                                {{floor.name}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>
-                <div class="form-group col">
-                    <mat-form-field>
-                        <mat-label class="mat-label d-flex">
-                            <span>Room / Zone</span>
-                            <span class="redAsterisk">
-                                <i class="fa fa-asterisk" aria-hidden="true"></i>
-                            </span>
-                        </mat-label>
-                        <input matInput placeholder="Enter Here" />
-                    </mat-form-field>
+                    </p>
                 </div>
             </div>
         </div>
@@ -116,7 +82,8 @@
             <a (click)="addZone()" class="addBuilding"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add
                 Room / Zone</a>
             <a (click)="cancelBuildingForm()">Cancel</a>
-            <button class="defaultBtn purpleBtn">Save</button>
+            <button mat-button
+            class="defaultBtn purpleBtn">Save</button>
         </div>
     </form>
 </div>

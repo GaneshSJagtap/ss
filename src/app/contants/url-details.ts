@@ -1,7 +1,6 @@
-import {environment} from '../../environments/environment';
+import { environment } from "../../environments/environment";
 
 export class UrlDetails {
-    public static facility = environment.smartwscore + 'facility/';
-    public static building = environment.smartwscore + 'building/';
+  public static facility = environment.smartwscore + "facility/";
+  public static building = environment.smartwscore + "building/";
 }
-

@@ -1,0 +1,325 @@
+.full-width-input-wrap {
+    width: 100%;
+
+    &.mat-form-field {   
+        font-family: "Work Sans" !important;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: normal;
+        color: #767676 !important;
+      
+        .mat-input-wrapper {            
+            .mat-input-element {
+                @include applyFont($fontSize: 14px);
+                color: $input-text-color;
+            }
+
+            .mat-input-placeholder {
+                @include applyFont($fontSize: 14px);
+                color: $placeholder-text-color;
+            }
+
+            .mat-input-underline {
+                background-color: $silver_shade3;
+            }
+
+            .mat-input-infix {
+                border-bottom: 0px solid $silver_shade3;
+                @include applyFont($fontSize: 14px);
+            }
+
+            .mat-input-invalid .mat-input-ripple{
+                background: $red_shade;
+            }
+        }
+
+        &.mat-focused {
+            .mat-input-placeholder {
+                color: $focus-placeholder-text-color;
+                transform: translateY(-1.28125em) scale(.95) translateZ(.001px) !important;
+
+            }
+        }
+    }
+
+    .mat-input-placeholder.mat-float:not(.mat-empty) {
+    transform: translateY(-1.28125em) scale(.95) translateZ(.001px) !important;
+ }
+
+    &.select-box-wrap {
+        position: relative;        
+
+        .mat-input-error {
+            font-size: 75%;
+            position: absolute;
+            top: 48px;
+        }
+    }
+
+
+    .mat-select {
+        position: relative;
+        width: 100%;
+        padding-bottom: 0.2em;
+        margin-top: 0;
+        @include applyFont();
+
+        .mat-select-placeholder {
+            @include applyFont($fontSize: 14px);
+            color: $placeholder-text-color;
+        }
+
+        .mat-select-value {
+            @include applyFont($fontSize: 14px);
+            color: $input-text-color;
+        }
+
+        .mat-option.mat-selected.mat-primary, .mat-primary .mat-option.mat-selected {
+            color: $primary_link;
+            
+        }
+
+        .mat-select-underline {    
+            background-color:$silver_shade3;
+        }
+
+        &:focus {
+            .mat-select-placeholder {
+                color: $focus-placeholder-text-color;
+                transform:  scale(.95) !important;
+                
+            }
+            .mat-select-underline {
+                height: 2px;
+            }
+        }
+
+        .mat-select-placeholder{
+            transform:  scale(.95) !important;
+        }
+
+        &.ng-invalid {
+            &.ng-touched {
+                .mat-select-underline {
+                    height: 2px;
+                    
+                }
+            }
+        }
+
+        .mat-select-arrow {        
+            border-left: 0 none;
+            border-right: 0 none;
+            border-top: 0 none;
+            margin: 0px;
+            color: $gray_shade1;
+            font-size: 20px;
+            position: absolute;
+            right: 18px;
+            top: 2px;
+            left: auto;
+
+            &:after {
+                display: inline-block;
+                font: normal normal normal 14px/1 FontAwesome;
+                font-size: inherit;
+                text-rendering: auto;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                content: '\f107';
+               // transform:  scale(.95) !important;            
+            }
+        }
+    }
+}
+
+
+.form-wrap {
+    label {
+        @include applyFont($fontWeight: 400);
+        color: $placeholder-text-color;
+        margin: 0px 0px 2px;
+        font-size: 14px;
+    }
+}
+
+.mat-select-panel {
+    .mat-option {
+        @include applyFont($fontSize: 14px, $lineHeight: 40px);
+        height: 40px;
+    }
+}
+
+// checkbox buttons
+.mat-primary .mat-pseudo-checkbox-checked {
+    background: $primary-shade4;
+}
+.mat-pseudo-checkbox {
+    border: 1px solid;
+    border-color:$silver_shade1!important;
+    background:$white_shade3;
+}
+.mat-checkbox {
+    .mat-ripple-element {
+        background-color: rgba(33, 138, 204, .26)!important;
+    }
+}
+.mat-pseudo-checkbox-checked {
+    &:after {
+        top: 4px!important;
+        left: 2px!important;
+    }
+}
+
+// radio buttons
+.mat-radio-button {              
+    .mat-radio-container {
+        background-color: #F2F2F2;
+        border-radius: 100%;
+    }
+
+    .mat-radio-label-content {
+        @include applyFont($fontSize: 14px);
+        color: #767676;
+        margin-right: 10px;
+        white-space: initial;
+    }
+
+    .mat-ripple-element {
+        background-color: rgba(33, 138, 204, .26)!important;
+    }
+
+    .mat-radio-outer-circle {
+        border: 1px solid #CFD3D4;
+    }
+
+    &.mat-radio-checked {
+        &.mat-accent {
+            .mat-radio-container {
+                background-color: $white;
+            }
+            .mat-radio-label-content {
+                color: #218ACC;
+            }
+            .mat-radio-outer-circle {
+                border-color: #218ACC;
+            }
+            .mat-radio-inner-circle {
+                background-color: #218ACC;
+            }
+        }        
+    }
+    
+    
+}
+
+//togglebutton
+
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: #fff;  
+    border: 1px solid #1277d9;
+}
+
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+     background-color: #1277d9;
+}
+ .mat-ripple-element {
+        background-color: rgba(33, 138, 204, .26)!important;
+ }
+ .mat-slide-toggle-bar, [dir=rtl] .mat-slide-toggle-label-before .mat-slide-toggle-bar {
+    margin-right: 8px !important;
+    margin-left: 8px!important;
+}
+.mat-slide-toggle-label .mat-slide-toggle-bar {
+    position: relative;
+    width: 28px;
+    height: 8px;
+    border-radius: 8px;
+    border: 1px solid #767676;
+    background: #fff;
+}
+.mat-slide-toggle-thumb-container .mat-slide-toggle-thumb {
+    height: 13px !important;
+    width: 13px !important;
+    border: 1px solid #767676;
+    border-radius: 50%;
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+}
+
+.mat-radio-ripple{
+    position: relative !important;
+    width:100px !important;
+}
+.mat-form-field-appearance-legacy .mat-form-field-label {
+    color: #a4a4a4;
+    font-size: 14px;
+}
+.mat-form-field.mat-focused .mat-form-field-label{
+    color:#218acc;
+    
+}
+
+.mat-card{
+    font-family: "Work Sans" !important;
+   
+    @media screen and (max-width:767px){
+        margin-bottom:25px; 
+    }
+   
+
+}
+.mat-form-field-appearance-legacy.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label, .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    -webkit-transform: translateY(-1.28125em) scale(0.95) perspective(100px) translateZ(.001px) !important;
+    transform: translateY(-1.28125em) scale(0.95) perspective(100px) translateZ(0.001px)!important;
+    -ms-transform: translateY(-1.28125em) scale(0.95)!important;
+    width: 133.33333%;
+}
+.mat-select-value-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    width: 165px;
+}
+.report-wrap .mat-select-value-text{
+    overflow: hidden;
+    white-space: normal;
+    width: 100%;
+}
+.mat-error {
+    color: #e10543  !important;
+    font-size: 11px !important;
+    
+  }
+ .mat-form-field.mat-form-field-invalid .mat-form-field-label{
+    color: #40505b  !important;
+  }
+.inp-seq .mat-form-field-infix{
+   border-top:0;
+   padding: 0 5px;
+}
+.mat-td .mat-form-field-infix{
+   border-top:0;
+   padding: 0 10px;
+}
+.cart-payment-wrap .mat-form-field-infix{
+    display: block;
+    position: relative;
+    flex: none;
+    min-width: 0;
+    width: auto;
+}
+.jobComp .mat-slide-toggle-thumb-container .mat-slide-toggle-thumb{
+    background-color: orange;
+  }
+  .jobComp .mat-slide-toggle-bar, .jobComp .mat-slide-toggle-thumb{
+    background-color: orange ;
+  }
+  .jobComp .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: #1b8acd;
+}
+@media (min-width: 1366px) and (max-width : 3000px){
+    .mat-select-value-text{
+        width: auto;
+    }
+}

@@ -8,8 +8,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NgDataTableModule } from './modules/ng-data-table/ng-data-table.module';
 import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
 import { HeadingsectionComponent } from './components/headingsection/headingsection.component';
-
-
+import { ClickOutsideModule } from 'ng-click-outside';
 
 @NgModule({
   declarations: [
@@ -23,7 +22,8 @@ import { HeadingsectionComponent } from './components/headingsection/headingsect
     CommonModule,
     FontAwesomeModule,
     RouterModule,
-    NgDataTableModule
+    NgDataTableModule,
+    ClickOutsideModule
   ],
   exports: [
     HeaderComponent,

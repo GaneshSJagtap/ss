@@ -1,0 +1,52 @@
+@import "../../../../../styles/style.mixin.scss";
+@import "../../../../../styles/common.scss";
+
+.formContainer {
+  .col {
+    h4 {
+      color: $State;
+      font-weight: 600;
+    }
+    h5 {
+      color: $State;
+      font-weight: 600;
+    }
+    ul {
+      list-style: none;
+      margin: $s0;
+      padding: $s0;
+      border: 1px solid #d8d8d8;
+      li {
+        font-size: $s13;
+        @include applyFont;
+        columns: $State;
+        border-bottom: 1px solid #d8d8d8;
+        &:nth-child(odd) {
+          background: $tableHeaderBg;
+        }
+        // &:nth-child(odd) {
+        // }
+        h5 {
+          margin: $s0;
+          padding: 14px 20px;
+          font-size: 14px;
+        }
+        div {
+          height: 35px;
+          align-items: center;
+          padding: 0 14px;
+          label {
+            position: relative;
+            height: 16px;
+            width: 16px;
+            margin-right: $s15;
+            &.toggleCheckbox {
+              margin-left: auto;
+              margin-right: 60px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

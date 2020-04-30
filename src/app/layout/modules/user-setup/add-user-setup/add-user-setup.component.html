@@ -1,0 +1,170 @@
+<div class="pageView">
+  <div class="pageTitleSection">
+    <h1 class="h1">{{ title }}</h1>
+    <p class="breadcrumb">
+      <a routerLink="/role-setup">User Setup</a> / Add User Setup
+    </p>
+  </div>
+  <section class="detailSection noPadd">
+    <div class="formSection">
+      <form [formGroup]="addroleform" (ngSubmit)="addroleSubmitForm()">
+        <div class="formContainer row d-flex">
+          <div class="form-group col">
+            <mat-form-field>
+              <mat-label class="mat-label d-flex">
+                <span>First Name</span>
+                <span class="redAsterisk">
+                  <i class="fa fa-asterisk" aria-hidden="true"></i>
+                </span>
+              </mat-label>
+              <input
+                matInput
+                [formControl]="firstName"
+                placeholder="Enter Here"
+              />
+            </mat-form-field>
+          </div>
+          <div class="form-group col">
+            <mat-form-field>
+              <mat-label class="mat-label d-flex">
+                <span>Last Name</span>
+                <span class="redAsterisk">
+                  <i class="fa fa-asterisk" aria-hidden="true"></i>
+                </span>
+              </mat-label>
+              <input
+                matInput
+                [formControl]="lastName"
+                placeholder="Enter Here"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="formContainer row d-flex">
+          <div class="form-group col">
+            <mat-form-field>
+              <mat-label class="mat-label d-flex">
+                <span>Email</span>
+                <span class="redAsterisk">
+                  <i class="fa fa-asterisk" aria-hidden="true"></i>
+                </span>
+              </mat-label>
+              <input matInput [formControl]="email" placeholder="Enter Here" />
+            </mat-form-field>
+          </div>
+          <div class="form-group col">
+            <mat-form-field>
+              <mat-label class="mat-label d-flex">
+                <span>User Name</span>
+                <span class="redAsterisk">
+                  <i class="fa fa-asterisk" aria-hidden="true"></i>
+                </span>
+              </mat-label>
+              <input
+                matInput
+                [formControl]="userName"
+                placeholder="Enter Here"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="formContainer row d-flex">
+          <div class="form-group col">
+            <mat-form-field>
+              <mat-label class="mat-label d-flex">
+                City
+              </mat-label>
+              <mat-select>
+                <mat-option *ngFor="let city of cities" [value]="city.name">
+                  {{ city.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="form-group col">
+            <mat-form-field>
+              <mat-label class="mat-label d-flex">
+                State
+              </mat-label>
+              <mat-select>
+                <mat-option *ngFor="let state of states" [value]="state.name">
+                  {{ state.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="formContainer row d-flex">
+          <div class="form-group col">
+            <mat-form-field>
+              <mat-label class="mat-label d-flex">
+                Country
+              </mat-label>
+              <mat-select>
+                <mat-option
+                  *ngFor="let country of countries"
+                  [value]="country.name"
+                >
+                  {{ country.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="form-group col">
+            <mat-form-field>
+              <mat-label class="mat-label d-flex">
+                Department
+              </mat-label>
+              <mat-select>
+                <mat-option
+                  *ngFor="let department of departments"
+                  [value]="department.name"
+                >
+                  {{ department.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="formContainer row d-flex">
+          <div class="form-group col">
+            <mat-form-field>
+              <mat-label class="mat-label d-flex">
+                Phone Number
+              </mat-label>
+              <input
+                matInput
+                [formControl]="facilityName"
+                placeholder="Enter Here"
+              />
+            </mat-form-field>
+          </div>
+          <div class="form-group col">
+            <mat-form-field>
+              <mat-label class="mat-label d-flex">
+                <span>Assign Role</span>
+                <span class="redAsterisk">
+                  <i class="fa fa-asterisk" aria-hidden="true"></i>
+                </span>
+              </mat-label>
+              <mat-select>
+                <mat-option *ngFor="let role of roles" [value]="role.name">
+                  {{ role.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div
+          class="formContainer row d-flex justify-content-end align-items-center cancle-save"
+        >
+          <a (click)="cancelAddroleform()">Cancel</a>
+          <button mat-button
+            class="defaultBtn purpleBtn" [disabled]="!addroleform.valid">
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>

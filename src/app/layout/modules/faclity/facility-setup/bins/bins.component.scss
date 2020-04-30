@@ -1,0 +1,17 @@
+@import "./../../../../../../styles/style.mixin.scss";
+body {
+  display: none;
+}
+.ng-data-table-wrap {
+  table {
+    td {
+      div[title~="Critical"] {
+        color: red !important;
+      }
+    }
+  }
+}
+
+[title~="flower"] {
+  border: 5px solid yellow;
+}

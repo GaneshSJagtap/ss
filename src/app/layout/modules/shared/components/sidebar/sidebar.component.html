@@ -1,74 +1,83 @@
 <section class="sideMenu" [ngClass]="collapsedWindow ? 'open' : 'close'">
-    <div class="logo d-flex align-items-center justify-content-center" [ngClass]="collapsedWindow ? 'close' : 'open'">
+  <div
+    class="logo d-flex align-items-center justify-content-center"
+    [ngClass]="collapsedWindow ? 'close' : 'open'"
+  >
+    <a routerLink="/">
+      <img
+        [src]="collapsedWindow ? largLogo : shortLogo"
+        alt="Exela Smart Office"
+        title="Exela Smart Office"
+        [ngClass]="collapsedWindow ? 'close' : 'open'"
+      />
+    </a>
+  </div>
+  <div class="menu">
+    <ul>
+      <li>
         <a routerLink="/">
-            <img [src]="collapsedWindow ? largLogo : shortLogo" alt="Exela Smart Office" title="Exela Smart Office"
-                [ngClass]="collapsedWindow ? 'close' : 'open'" />
+          <span class="menuIcon">
+            <fa-icon [icon]="faChartBar"></fa-icon>
+          </span>
+          <p class="menuTitle">Dashboard</p>
         </a>
-    </div>
-    <div class="menu">
-        <ul>
-            <li>
-                <a>
-                    <span class="menuIcon">
-                        <fa-icon [icon]="faChartBar"></fa-icon>
-                    </span>
-                    <p class="menuTitle">Dashboard</p>
-                </a>
-            </li>
-            <li>
-                <a>
-                    <span class="menuIcon"><i class="fa fa-black-tie" aria-hidden="true"></i></span>
-                    <p class="menuTitle">Client Setup</p>
-                </a>
-            </li>
-            <li>
-                <a routerLink="/facility">
-                    <span class="menuIcon">
-                        <fa-icon [icon]="faBuilding"></fa-icon>
-                    </span>
-                    <p class="menuTitle">Facility Setup</p>
-                </a>
-            </li>
-            <li>
-                <a routerLink="/user-setup">
-                    <span class="menuIcon">
-                        <fa-icon [icon]="faUserFriends"></fa-icon>
-                    </span>
-                    <p class="menuTitle">User Setup</p>
-                </a>
-            </li>
-            <li>
-                <a>
-                    <span class="menuIcon">
-                        <fa-icon [icon]="faUserCog"></fa-icon>
-                    </span>
-                    <p class="menuTitle">Role Setup</p>
-                </a>
-            </li>
-            <li>
-                <a>
-                    <span class="menuIcon">
-                        <fa-icon [icon]="faCheckDouble"></fa-icon>
-                    </span>
-                    <p class="menuTitle">Allocation</p>
-                </a>
-            </li>
-            <li>
-                <a>
-                    <span class="menuIcon">
-                        <fa-icon [icon]="faEdit"></fa-icon>
-                    </span>
-                    <p class="menuTitle">Configure Dashboard</p>
-                </a>
-            </li>
-            <li>
-                <a>
-                    <span class="menuIcon">
-                        <fa-icon [icon]="faPodcast"></fa-icon>
-                    </span>
-                    <p class="menuTitle">Sensor Status</p>
-                </a>
-            </li>
-        </ul>
-    </div>
+      </li>
+      <li>
+        <a routerLink="/client-setup">
+          <span class="menuIcon"
+            ><i class="fa fa-black-tie" aria-hidden="true"></i
+          ></span>
+          <p class="menuTitle">Client Setup</p>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/facility">
+          <span class="menuIcon">
+            <fa-icon [icon]="faBuilding"></fa-icon>
+          </span>
+          <p class="menuTitle">Facility Setup</p>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/user-setup">
+          <span class="menuIcon">
+            <fa-icon [icon]="faUserFriends"></fa-icon>
+          </span>
+          <p class="menuTitle">User Setup</p>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/role-setup">
+          <span class="menuIcon">
+            <fa-icon [icon]="faUserCog"></fa-icon>
+          </span>
+          <p class="menuTitle">Role Setup</p>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/allocation">
+          <span class="menuIcon">
+            <fa-icon [icon]="faCheckDouble"></fa-icon>
+          </span>
+          <p class="menuTitle">Allocation</p>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/configure-dashboard">
+          <span class="menuIcon">
+            <fa-icon [icon]="faEdit"></fa-icon>
+          </span>
+          <p class="menuTitle">Configure Dashboard</p>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/sensor-status">
+          <span class="menuIcon">
+            <fa-icon [icon]="faPodcast"></fa-icon>
+          </span>
+          <p class="menuTitle">Sensor Status</p>
+        </a>
+      </li>
+    </ul>
+  </div>
 </section>

@@ -1,0 +1,53 @@
+@import "../../../../../styles/style.mixin.scss";
+@import "../../../../../styles/common.scss";
+
+.barChart {
+  h5 {
+    color: $gray;
+    font-size: $s14;
+    font-weight: 600;
+    margin: $s0;
+  }
+  .filters {
+    .form-group {
+      line-height: 0;
+      display: flex;
+      align-items: center;
+      border-right: $s1 solid #969696 !important;
+      padding: $s0 $s0 $s0 $s5;
+      select {
+        color: $gray;
+        border: $s0;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        text-indent: 1px;
+        text-overflow: "";
+        font-size: $s14;
+        font-family: "Work Sans" !important;
+        background: url("../../../../../assets/images/arrow.jpg") no-repeat 95%
+          center;
+        padding: $s0 $s20 $s0 $s0;
+        &:focus {
+          outline: transparent;
+        }
+        &:before {
+          @include pseudo;
+          display: inline-block;
+          font: normal normal normal 14px/1 FontAwesome;
+          font-size: inherit;
+          text-rendering: auto;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          content: "\f107";
+        }
+      }
+      &:last-child {
+        border-right: $s0 !important;
+      }
+    }
+  }
+}
+select::-ms-expand {
+  display: none;
+}

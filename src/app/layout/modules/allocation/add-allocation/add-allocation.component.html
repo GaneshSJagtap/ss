@@ -1,0 +1,181 @@
+<div class="pageView">
+  <div class="pageTitleSection">
+    <h1 class="h1">{{ title }}</h1>
+    <p class="breadcrumb">
+      <a routerLink="/allocation">Allocation</a> / Add Allocation
+    </p>
+  </div>
+  <section class="detailSection noPadd">
+    <div class="formSection">
+      <form [formGroup]="addroleform" (ngSubmit)="addroleSubmitForm()">
+        <div class="formContainer row d-flex">
+          <div class="form-group col">
+            <mat-form-field>
+              <mat-label class="mat-label d-flex">
+                User Name
+              </mat-label>
+              <mat-select multiple>
+                <mat-option
+                  *ngFor="let userName of userNames"
+                  [value]="userName.name"
+                >
+                  {{ userName.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="form-group col">
+            <mat-form-field>
+              <mat-label class="mat-label d-flex">
+                <span>Role</span>
+              </mat-label>
+              <input matInput [formControl]="role" placeholder="Enter Here" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="formContainer row d-flex">
+          <div class="col fullWidth">
+            <h5>
+              Select Facility
+              <span>( Only one facility can be selected at a time )</span>
+            </h5>
+            <div class="mr-auto d-flex align-items-end">
+              <div class="facilityPageTag d-flex">
+                <p>Facility 01</p>
+                <p class="pageTag">
+                  <a onclick="this.parentElement.parentElement.remove();">
+                    <span class="removePageTag">
+                      <i class="fa fa-times" aria-hidden="true"></i>
+                    </span>
+                  </a>
+                </p>
+              </div>
+              <div class="facilityPageTag d-flex" *ngIf="buildingsBox">
+                <p>Building 02</p>
+                <p class="pageTag">
+                  <a onclick="this.parentElement.parentElement.remove();">
+                    <span class="removePageTag">
+                      <i class="fa fa-times" aria-hidden="true"></i>
+                    </span>
+                  </a>
+                </p>
+              </div>
+              <div class="facilityPageTag d-flex" *ngIf="floorBox">
+                <p>Floor 02, 03</p>
+                <p class="pageTag">
+                  <a onclick="this.parentElement.parentElement.remove();">
+                    <span class="removePageTag">
+                      <i class="fa fa-times" aria-hidden="true"></i>
+                    </span>
+                  </a>
+                </p>
+              </div>
+              <div class="facilityPageTag d-flex" *ngIf="sensorBox">
+                <p>Sensor 01, 02</p>
+                <p class="pageTag">
+                  <a onclick="this.parentElement.parentElement.remove();">
+                    <span class="removePageTag">
+                      <i class="fa fa-times" aria-hidden="true"></i>
+                    </span>
+                  </a>
+                </p>
+              </div>
+            </div>
+            <div class="d-flex allocation">
+              <div
+                class="facilitys"
+                [ngClass]="{ noRightBorder: buildingsBox == true }"
+              >
+                <h4>Facilities</h4>
+                <ul>
+                  <li
+                    *ngFor="let facilitie of facilities"
+                    (click)="getFacilitieList(n)"
+                    [ngClass]="{ active: isActive(n) }"
+                  >
+                    {{ facilitie.name }}
+                    <span class="facilitys-angle-right">
+                      <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="buildings"
+                *ngIf="buildingsBox"
+                [ngClass]="{ noRightBorder: floorBox == true }"
+              >
+                <h4>Building</h4>
+                <ul>
+                  <li
+                    *ngFor="let building of buildings"
+                    (click)="getBuildingList()"
+                  >
+                    <label class="checkbox-label d-flex">
+                      <input type="checkbox" />
+                      <span class="checkbox-custom"></span>
+                      {{ building.name }}
+                      <span class="angle-right">
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                      </span>
+                    </label>
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="floors"
+                *ngIf="floorBox"
+                [ngClass]="{ noRightBorder: sensorBox == true }"
+              >
+                <h4>Floor</h4>
+                <ul>
+                  <li *ngFor="let floor of floors" (click)="getFloorList()">
+                    <label class="checkbox-label d-flex">
+                      <input type="checkbox" />
+                      <span class="checkbox-custom"></span>
+                      {{ floor.name }}
+                      <span class="angle-right">
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                      </span>
+                    </label>
+                  </li>
+                </ul>
+              </div>
+              <div class="sensors" *ngIf="sensorBox">
+                <h4>Sensor</h4>
+                <ul>
+                  <li *ngFor="let sensor of sensors" (click)="getSensorList()">
+                    <label class="checkbox-label d-flex">
+                      <input type="checkbox" />
+                      <span class="checkbox-custom"></span>
+                      {{ sensor.name }}
+                      <span class="angle-right">
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                      </span>
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="formContainer row d-flex">
+          <div class="col fullWidth"></div>
+        </div>
+        <div
+          class="formContainer row d-flex justify-content-end align-items-center cancle-save"
+          [ngClass]="{ show: sensorBox == true }"
+        >
+          <a (click)="cancelAddroleform()">Cancel</a>
+          <button
+            mat-button
+            class="defaultBtn purpleBtn"
+            [disabled]="!addroleform.valid"
+          >
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>

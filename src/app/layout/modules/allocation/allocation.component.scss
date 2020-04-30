@@ -1,0 +1,23 @@
+@import "../../../../styles/style.mixin.scss";
+@import "../../../../styles/common.scss";
+
+.individual-group {
+  border: 1px solid $sideBarBg;
+  border-radius: 10px;
+  height: 33px;
+  align-items: stretch;
+  overflow: hidden;
+  a {
+    align-items: center;
+    display: flex;
+    padding: 0 $s10;
+    cursor: pointer;
+    font-size: 14px;
+    min-width: 70px;
+    justify-content: center;
+    &.active {
+      background: $sideBarBg;
+      color: $white;
+    }
+  }
+}

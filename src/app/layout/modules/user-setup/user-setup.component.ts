@@ -1,30 +1,109 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpService } from '../../services/http.service';
+import { Component, OnInit } from "@angular/core";
+import { HttpService } from "../../services/http.service";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
-  selector: 'app-user-setup',
-  templateUrl: './user-setup.component.html',
-  styleUrls: ['./user-setup.component.scss']
+  selector: "app-user-setup",
+  templateUrl: "./user-setup.component.html",
+  styleUrls: ["./user-setup.component.scss"]
 })
 export class UserSetupComponent implements OnInit {
+  title = "User Setup";
+  public href: string = "";
+  faSearch = faSearch;
+  status = false;
+  hasActionButtons: boolean = true;
+  hasActions: boolean = true;
 
-  columns: Array<any> = [{ title: 'ID', key: 'id', sortable: false, link: true, },
-    { title: 'Number', key: 'num', sortable: false, },
-    { title: 'Amount', key: 'amount', sortable: false, },
-    { title: 'ClientId', key: 'clientId', sortable: false, },
-    { title: 'Description', key: 'description', sortable: false, isTag: false, linkRed: true }
+  columns: Array<any> = [
+    { title: "Full Name", key: "fullNae", sortable: true, filter: true },
+    { title: "User Name", key: "userName", sortable: true, filter: true },
+    { title: "Email", key: "email", sortable: true, link: true, filter: true },
+    { title: "Company", key: "company", sortable: true, filter: true },
+    { title: "Role", key: "role", sortable: true, filter: true }
   ];
-  policys = [
-    { id: 1, num: 'PO1', amount: 1000, userId: 1, clientId: 1, description: 'Insurance policy number PO1' },
-    { id: 2, num: 'PO2', amount: 2000, userId: 1, clientId: 2, description: 'Insurance policy number PO2' },
-    { id: 3, num: 'PO3', amount: 3000, userId: 1, clientId: 3, description: 'Insurance policy number PO3' },
-    { id: 4, num: 'PO4', amount: 4000, userId: 1, clientId: 4, description: 'Insurance policy number PO4' }
+  userSetups = [
+    {
+      fullNae: "Susan White",
+      userName: "susan.white",
+      email: "susan.white@exelaonrine.com",
+      company: "Walmart",
+      role: "Standard User"
+    },
+    {
+      fullNae: "John Doe",
+      userName: "john.doe",
+      email: "john.doe@exelaonrine.com",
+      company: "AT&T",
+      role: "Standard User"
+    },
+    {
+      fullNae: "Peter Wigiurn",
+      userName: "peter.wigiurn",
+      email: "peter.wigiurn@exelaonrine.com",
+      company: "Microsoft",
+      role: "Standard User"
+    },
+    {
+      fullNae: "Alex Gaol",
+      userName: "alex.gaol",
+      email: "alex.gaol@exelaonrine.com",
+      company: "General Motars",
+      role: "Standard User"
+    },
+    {
+      fullNae: "John Morris",
+      userName: "john.morris",
+      email: "john.morris@exelaonrine.com",
+      company: "Chevron",
+      role: "Standard User"
+    },
+    {
+      fullNae: "Brian Paul",
+      userName: "Brian.Paul",
+      email: "brian.paul@exelaonrine.com",
+      company: "Deg Technologies",
+      role: "Standard User"
+    },
+    {
+      fullNae: "Stanley Foster",
+      userName: "stanley.foster",
+      email: "stanley.foster@exelaonrine.com",
+      company: "General Motars",
+      role: "Standard User"
+    },
+    {
+      fullNae: "Susan White",
+      userName: "susan.white",
+      email: "susan.white@exelaonrine.com",
+      company: "Walmart",
+      role: "Standard User"
+    },
+    {
+      fullNae: "John Doe",
+      userName: "john.doe",
+      email: "john.doe@exelaonrine.com",
+      company: "AT&T",
+      role: "Standard User"
+    },
+    {
+      fullNae: "Peter Wigiurn",
+      userName: "peter.wigiurn",
+      email: "peter.wigiurn@exelaonrine.com",
+      company: "Microsoft",
+      role: "Standard User"
+    }
   ];
 
   // public policys
-  constructor(private httpService: HttpService) { }
+  constructor(private httpService: HttpService) {}
 
-  ngOnInit() {
+  ngOnInit() {}
 
+  toggleDropdown() {
+    this.status = !this.status;
+  }
+  onClickedOutside(e: Event) {
+    this.status = false;
   }
 }

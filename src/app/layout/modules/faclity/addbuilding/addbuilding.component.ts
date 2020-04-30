@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { HttpService } from 'src/app/layout/services/http.service';
 import { UrlDetails } from '../../../../contants/url-details';
-import { Router } from '@angular/router';
 
 interface Floor {
   name: string;
@@ -82,4 +81,14 @@ export class AddbuildingComponent implements OnInit {
         this.facilities = (res as any);
       });
   }
+
+  facilityId = new FormControl('', [
+    Validators.required
+  ]);
+  buildingName = new FormControl('', [
+    Validators.required
+  ]);
+  floorNumber = new FormControl('', [
+    Validators.required
+  ])
 }

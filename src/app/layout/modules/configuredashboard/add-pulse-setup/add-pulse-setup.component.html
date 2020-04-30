@@ -1,0 +1,121 @@
+<div class="pageView">
+  <div class="pageTitleSection">
+    <h1 class="h1">{{ title }}</h1>
+    <p class="breadcrumb">
+      <a routerLink="/configure-dashboard">Configure Dashboard</a> / Add Pulse
+      Setup
+    </p>
+  </div>
+  <section class="detailSection noPadd">
+    <div class="formSection">
+      <form [formGroup]="addroleform" (ngSubmit)="addroleSubmitForm()">
+        <div class="formContainer row d-flex">
+          <div class="form-group col">
+            <mat-form-field>
+              <mat-label class="mat-label d-flex">
+                <span>Graph Name</span>
+              </mat-label>
+              <input
+                matInput
+                [formControl]="firstName"
+                placeholder="Enter Here"
+              />
+            </mat-form-field>
+          </div>
+          <div class="form-group col">
+            <mat-form-field>
+              <mat-label class="mat-label d-flex">
+                Service Name
+              </mat-label>
+              <mat-select>
+                <mat-option
+                  *ngFor="let service of serviceNames"
+                  [value]="service.name"
+                >
+                  {{ service.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="formContainer row d-flex">
+          <div class="form-group col">
+            <mat-form-field>
+              <mat-label class="mat-label d-flex">
+                Graph Type
+              </mat-label>
+              <mat-select>
+                <mat-option
+                  *ngFor="let graph of graphTypes"
+                  [value]="graph.name"
+                >
+                  {{ graph.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="form-group col">
+            <mat-form-field>
+              <mat-label class="mat-label d-flex">
+                <span>Graph Sequence</span>
+              </mat-label>
+              <input
+                matInput
+                [formControl]="userName"
+                placeholder="Enter Here"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="formContainer row d-flex">
+          <div class="form-group col">
+            <mat-form-field>
+              <mat-label class="mat-label d-flex">
+                Animation Duration (ms)
+              </mat-label>
+              <input
+                matInput
+                [formControl]="facilityName"
+                placeholder="Enter Here"
+              />
+            </mat-form-field>
+          </div>
+          <div class="form-group col">
+            <mat-form-field>
+              <mat-label class="mat-label d-flex">
+                <span>Animation Name</span>
+              </mat-label>
+              <input matInput placeholder="Enter Here" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="formContainer row d-flex">
+          <div class="form-group col">
+            <mat-form-field>
+              <mat-label class="mat-label d-flex">
+                <span>Animation Name</span>
+              </mat-label>
+              <input matInput placeholder="Enter Here" />
+            </mat-form-field>
+          </div>
+          <div class="form-group col">
+            <label class="toggleCheckbox">
+              <input type="checkbox" checked />
+              <span class="">Show Tooltip</span>
+              <span class="checkbox-custom"></span>
+            </label>
+          </div>
+        </div>
+        <div
+          class="formContainer row d-flex justify-content-end align-items-center cancle-save"
+        >
+          <a (click)="cancelAddroleform()">Cancel</a>
+          <button mat-button
+            class="defaultBtn purpleBtn" [disabled]="!addroleform.valid">
+            Add
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>

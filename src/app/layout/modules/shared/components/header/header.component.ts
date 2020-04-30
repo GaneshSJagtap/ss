@@ -6,9 +6,6 @@ import { SharedService } from '../../shared.service';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  host: {
-    '(document:click)': 'onClick($event)',
-  }
 })
 
 export class HeaderComponent implements OnInit {
@@ -35,10 +32,8 @@ export class HeaderComponent implements OnInit {
   profileDropdownMenuToggle() {
     this.dropdownStatus = !this.dropdownStatus;
   }
-  onClick() {
-    if (!this._eref.nativeElement.contains(event.target)) {
-      this.dropdownStatus = false;
-    }
+  onClickedOutside(e: Event) {
+    this.dropdownStatus = false;
   }
 
 }

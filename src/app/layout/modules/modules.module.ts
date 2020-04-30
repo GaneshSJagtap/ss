@@ -1,8 +1,7 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-// import { FacilitySetupComponent } from './facility-setup1/facility-setup.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FormsModule } from '@angular/forms';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { MatButtonModule } from "@angular/material/button";
 import { MatDialogModule } from "@angular/material/dialog";
@@ -16,13 +15,14 @@ import { DataService } from "./services/facilitySetupData.service";
 import { AddDialogComponent } from "./dialogs/add/add.dialog.component";
 import { EditDialogComponent } from "./dialogs/edit/edit.dialog.component";
 import { DeleteDialogComponent } from "./dialogs/delete/delete.dialog.component";
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryWebApiModule } from "angular-in-memory-web-api";
+
 
 @NgModule({
   declarations: [
     AddDialogComponent,
     EditDialogComponent,
-    DeleteDialogComponent,
+    DeleteDialogComponent
   ],
   imports: [
     CommonModule,
@@ -39,15 +39,13 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
     MatToolbarModule,
     FormsModule,
     InMemoryWebApiModule
-
   ],
   entryComponents: [
     AddDialogComponent,
     EditDialogComponent,
     DeleteDialogComponent
   ],
-  exports: [
-  ],
-  providers: [DataService],
+  exports: [],
+  providers: [DataService]
 })
-export class ModulesModule { }
+export class ModulesModule {}

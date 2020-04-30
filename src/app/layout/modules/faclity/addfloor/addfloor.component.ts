@@ -23,10 +23,8 @@ export class AddfloorComponent implements OnInit {
       buildingId: [''],
       floorDetails: this.fBuilder.array([this.createFloors()])
     });
-
     this.floorList = this.floorform.get('floorDetails') as FormArray;
   }
-
   get floorFormGroup() {
     return this.floorform.get('floorDetails') as FormArray
   }

@@ -1,227 +1,660 @@
-@import './style.mixin.scss';
-
+@import "./style.mixin.scss";
 
 .mainContainer {
-    padding: $s14 $s20 $s20 $s18;        
-    flex: 2;
-    .pageView {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        .pageTitleSection {
-            flex: 1;
-        }
-        .detailSection {
-            flex: 2;
-            box-shadow: 0px 1px 0px 1px #e6e6e6;
-        }
+  padding: $s14 $s20 $s20 $s18;
+  flex: 2;
+  .pageView {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    .pageTitleSection {
+      flex: 1;
     }
+    .detailSection {
+      flex: 2;
+      box-shadow: 0px 1px 0px 1px #e6e6e6;
+    }
+  }
 }
 .mat-tab-header {
-    .mat-tab-label-container {
-        .mat-tab-list {
-            .mat-tab-label {
-                padding: $s0 $s5;
-                min-width: $s10;
-                margin: $s0 $s22;
-                @include for-phone-only {
-                    margin: 0px 2%;
-                }
-                &.mat-tab-label-active {
-                    color: $sideBarBg;
-                    opacity: 1;
-                }
-                &.cdk-focused {
-                    &.cdk-focused {
-                        &.mat-rippel-element {
-                            background: $lighterBlue;
-                        }
-                    }
-                }
-            }
-            .mat-ink-bar {
-                background: $sideBarBg;
-            }
+  .mat-tab-label-container {
+    .mat-tab-list {
+      .mat-tab-label {
+        padding: $s0 $s5;
+        min-width: $s10;
+        margin: $s0 $s22;
+        @include for-phone-only {
+          margin: 0px 2%;
         }
+        &.mat-tab-label-active {
+          color: $sideBarBg;
+          opacity: 1;
+        }
+        &.cdk-focused {
+          &.cdk-focused {
+            &.mat-rippel-element {
+              background: $lighterBlue;
+            }
+          }
+        }
+      }
+      .mat-ink-bar {
+        background: $sideBarBg;
+      }
     }
+  }
 }
 .formSection {
-    padding: $s20 $s0;
-    .formContainer{
-        padding: $s0 $s20;
-        flex-wrap: wrap;
-        position: relative;
-        .col{
-            flex-basis: 48% !important;
-            @include for-phone-only {
-                flex-basis: 100% !important;
-            }
-            @include for-tablet {
-                flex-basis: 46% !important;
-            }   
-            &.form-group {
-                flex: 1;
+  padding: $s20 $s0;
+  .formContainer {
+    padding: $s0 $s20;
+    flex-wrap: wrap;
+    position: relative;
+    .col {
+      flex-basis: 48% !important;
+      h5 {
+        color: $State;
+        font-weight: 600;
+        margin-top: $s0;
+        span {
+          font-weight: normal;
+          font-style: italic;
+        }
+      }
+      &.fullWidth {
+        flex-basis: 100% !important;
+        padding: $s0 !important;
+      }
+      @include for-phone-only {
+        flex-basis: 100% !important;
+      }
+      @include for-tablet {
+        flex-basis: 46% !important;
+      }
+      &.form-group {
+        flex: 1;
 
-                .mat-form-field {
-                    width: 100%;
-                    input:-webkit-autofill {
-                        background-color: transparent !important;
-                    }
-                }
-                &.left,
-                &:first-child{
-                    padding: $s0 $s15 $s0 $s0;
-                    @include for-phone-only {
-                        padding: $s0;
-                    }
-                }
-                &.right,
-                &:last-child{
-                    padding: $s0 $s0 $s0 $s15;
-                    @include for-phone-only {
-                        padding: $s0;
-                    }
-                }
-                .mat-form-field-infix{
-                    // font-size: $s14;
-                }
-            }
+        .mat-form-field {
+          width: 100%;
+          input:-webkit-autofill {
+            background-color: transparent !important;
+          }
         }
-        &.cancle-save {
-            a {
-                margin: $s0 $s10 $s0 $s0;
-                font-size: $s14;
-                font-weight: $weight500;
-                cursor: pointer;
-                &.addBuilding{
-                    margin-right: auto;
-                }
-            }
-            button {
-                margin: $s0 $s0 $s0 $s10;
-            }
+        &.left,
+        &:first-child {
+          padding: $s0 $s15 $s0 $s0;
+          @include for-phone-only {
+            padding: $s0;
+          }
         }
+        &.right,
+        &:last-child {
+          padding: $s0 $s0 $s0 $s15;
+          @include for-phone-only {
+            padding: $s0;
+          }
+        }
+      }
     }
+    &.cancle-save {
+      a {
+        margin: $s0 $s10 $s0 $s0;
+        font-size: $s14;
+        font-weight: $weight500;
+        cursor: pointer;
+        &.addBuilding {
+          margin-right: auto;
+        }
+      }
+      button {
+        margin: $s0 $s0 $s0 $s10;
+      }
+    }
+  }
 }
 .mat-form-field-flex {
-    padding: 0 12px;
-    .mat-select-arrow {
-        margin: $s0 -$s4 $s0 $s0;
-    }
+  padding: 0 12px;
+  .mat-select-arrow {
+    margin: $s0 -$s4 $s0 $s0;
+  }
 }
-.mat-form-field-should-float{
-    .mat-form-field-infix {
-        .mat-label {
-            font-size: $s17 !important;
-            @include applyFont;
-        }
+.mat-form-field-should-float {
+  .mat-form-field-infix {
+    .mat-label {
+      font-size: $s17 !important;
+      @include applyFont;
     }
+  }
 }
-.mat-focused{
-    .mat-form-field-infix {
-        .mat-label {
-            font-size: $s17 !important;
-            @include applyFont;
-        }
+.mat-focused {
+  .mat-form-field-infix {
+    .mat-label {
+      font-size: $s17 !important;
+      @include applyFont;
     }
+  }
 }
 .mat-form-field-infix {
-    .mat-label {
-        font-size: $s14 !important;
-        @include applyFont;
-    }
-    .mat-input-element,
-    .mat-select-value-text {
-        font-size: $s14 !important;
-    }
+  .mat-label {
+    font-size: $s14 !important;
+    @include applyFont;
+  }
+  .mat-input-element,
+  .mat-select-value-text {
+    font-size: $s14 !important;
+  }
 }
 .customUploadBtn {
-    background: transparent;
-    width: 100%;
-    padding: 0;
-    border: 0;
-    padding: $s11 $s0; 
-    .ng-hide {
-        display: none;
-    } 
-    label{
-        border-bottom: 1px solid #949494 !important;
-        display: flex;
-        width: 100%;
-        font-size: $s14;
-        // color: $lightGray;
-        padding: $s7 0; 
-        span{
-            &.browseTxt{
-                margin-left: auto;
-                color: #1277D9;
-                font-weight: $weight500;
-            }
-        }
-    }
-}
-.deleteNode { 
+  background: transparent;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  padding: $s11 $s0;
+  .ng-hide {
+    display: none;
+  }
+  label {
+    border-bottom: 1px solid #949494 !important;
     display: flex;
-    font-size: $s13;
-    color: $primaryLinkOnLightBg;
-    padding: $s0;
-    margin: $s5 $s0 $s0;
-    position: absolute;
-    right: $s0;
-    top: $s0;
-    border: 1px solid;
-    border-radius: 100%;
-    height: $s20;
-    width: $s20;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+    font-size: $s14;
+    // color: $lightGray;
+    padding: $s7 0;
     span {
-        line-height: $s0;
-        margin-top: -$s1;
-        &.deleteFile{
-            a {
-                color: $magenta;
-                cursor: pointer;
-            }
-        }
+      &.mat-select-placeholder {
+        padding-left: $s12;
+      }
+      &.browseTxt {
+        margin-left: auto;
+        color: #1277d9;
+        font-weight: $weight500;
+      }
     }
-    &.uploadedDisplay {
-        position: static;
-        height: auto;
-        width: auto;
-        align-items: inherit;
-        justify-content: inherit;
-        border: 0;
-        span {
-        line-height: inherit;
-            &.deleteFile{
-                margin-left: auto;
-                padding-left: $s20;
-                a {
-                    color: $magenta;
-                    cursor: pointer;
-                }
-            }
-        }
-    }
+  }
 }
-body .mat-select-panel{
-    .mat-option {
-        font-size: inherit;
-        line-height: 2em;
-        height: 2em;
-        .mat-option-text {
-            font-size: $s14;
-        }
+.deleteNode {
+  display: flex;
+  font-size: $s13;
+  color: $primaryLinkOnLightBg;
+  padding: $s0;
+  margin: $s5 $s0 $s0;
+  position: absolute;
+  right: $s0;
+  top: $s0;
+  border: 1px solid;
+  border-radius: 100%;
+  height: $s20;
+  width: $s20;
+  align-items: center;
+  justify-content: center;
+  span {
+    line-height: $s0;
+    margin-top: -$s1;
+    &.deleteFile {
+      a {
+        color: $magenta;
+        cursor: pointer;
+      }
     }
+  }
+  &.uploadedDisplay {
+    position: static;
+    height: auto;
+    width: auto;
+    align-items: inherit;
+    justify-content: inherit;
+    border: 0;
+    span {
+      line-height: inherit;
+      &.deleteFile {
+        margin-left: auto;
+        padding-left: $s20;
+        a {
+          color: $magenta;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+body .mat-select-panel {
+  .mat-option {
+    font-size: inherit;
+    line-height: 2em;
+    height: 2em;
+    .mat-option-text {
+      font-size: $s14;
+    }
+  }
 }
 body .mat-tab-body-content {
-    padding: 0 10px; 
+  padding: 0 10px;
 }
-.breadcrumb{
-    font-size: $s12;
-    margin: $s0 $s0 $s15 $s0;
-    a {
-        text-decoration: none;
+.breadcrumb {
+  font-size: $s12;
+  margin: $s0 $s0 $s15 $s0;
+  a {
+    text-decoration: none;
+  }
+}
+.addNewFacilityDropdown {
+  position: relative;
+  .addNewFacilitymenu {
+    display: none;
+    position: absolute;
+    margin: $s0;
+    padding: $s0;
+    width: 150px;
+    top: $s40;
+    background: $white;
+    background-clip: padding-box;
+    border: $s1 solid #ccc;
+    border: $s1 solid #e1e2e3;
+    border-radius: $s1;
+    box-shadow: $s0 $s6 $s12 $lightGray;
+    right: $s0;
+    padding: $s5 $s0;
+    .facilitymenuItem {
+      display: block;
+      padding: $s5 $s15;
+      text-decoration: none;
+      font-size: $s14;
+      color: $State;
+      &:hover {
+        background: $lightGray;
+      }
     }
+    &.open {
+      display: block;
+    }
+  }
+}
+
+.pagination-wrap {
+  .simple-pagination {
+    ul {
+      display: flex;
+      margin: $s0;
+      padding: 0;
+      li {
+        list-style: none;
+        font-size: $s14;
+        a {
+          padding: 5px 10px;
+          color: #40505b;
+          text-decoration: none;
+          &:hover {
+            background: #1277d9;
+            color: $white;
+          }
+          &.prev,
+          &.next {
+            &:hover {
+              color: #40505b;
+              background: transparent;
+            }
+          }
+        }
+        span {
+          padding: 5px 10px;
+          color: #40505b;
+          &.current {
+            background: #1277d9;
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}
+.facilityPageTag {
+  background: $lighterBlue;
+  padding: $s3 $s8 $s3 $s12;
+  margin: $s0 $s10 $s0 $s0;
+  p {
+    font-size: $s12;
+    margin: $s0;
+    padding: $s0;
+    &.pageTag {
+      margin-left: $s8;
+      a {
+        color: $black;
+      }
+    }
+  }
+}
+.beansDataTable {
+  .ng-data-table-wrap {
+    table {
+      td {
+        &:nth-child(2) {
+          div[title] {
+            display: inline-block;
+            min-width: 130px;
+            text-align: center;
+            border-radius: 3px;
+            padding: 5px 0;
+            position: relative;
+          }
+        }
+      }
+    }
+  }
+}
+.beansDataTable {
+  [title~="Critical"] {
+    color: #fff;
+    background: #e10443;
+  }
+  [title~="Empty"] {
+    color: #fff;
+    background: #2d8666;
+  }
+  [title~="Battery"] {
+    color: #fff;
+    background: #d2249c;
+    @include pseudo;
+    &:before {
+      position: static;
+      display: inline !important;
+      content: "Low" !important;
+    }
+  }
+  [title~="Humidity"] {
+    color: #fff;
+    background: #89279a;
+    @include pseudo;
+    &:before {
+      position: static;
+      display: inline !important;
+      content: "High" !important;
+    }
+  }
+  [title~="Temperature"] {
+    color: #fff;
+    background: #1177d9;
+    @include pseudo;
+    &:before {
+      position: static;
+      display: inline !important;
+      content: "High" !important;
+    }
+  }
+}
+.floorDataTable {
+  .ng-data-table-wrap {
+    table {
+      td {
+        .fa-eye,
+        .fa-pencil {
+          display: none;
+        }
+      }
+    }
+  }
+}
+:root {
+  .beansDataTable {
+    .ng-data-table-wrap {
+      table {
+        td {
+          padding: $s7 $s15 !important;
+          .fa-pencil {
+            display: none;
+          }
+          .fa-trash-o {
+            margin: $s0 $s0 $s0 $s15;
+          }
+        }
+      }
+    }
+  }
+}
+
+.col {
+  .cancle-save {
+    margin-top: $s20;
+    padding-right: $s0;
+  }
+}
+
+.checkbox-label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 24px;
+  height: 24px;
+  width: 24px;
+}
+
+.checkbox-label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  left: -999px;
+}
+
+.checkbox-label .checkbox-custom {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 16px;
+  width: 16px;
+  background-color: transparent;
+  border-radius: 2px;
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  border: 1px solid #d2d5d6;
+}
+
+.checkbox-label input:checked ~ .checkbox-custom {
+  background-color: #ffffff;
+  border-radius: 2px;
+  -webkit-transform: rotate(0deg) scale(1);
+  -ms-transform: rotate(0deg) scale(1);
+  transform: rotate(0deg) scale(1);
+  opacity: 1;
+  border: 1px solid #d2d5d6;
+}
+
+.checkbox-label .checkbox-custom::after {
+  position: absolute;
+  content: "";
+  left: 12px;
+  top: 12px;
+  height: 0px;
+  width: 0px;
+  border-radius: 5px;
+  border: solid #40505b;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(0deg) scale(0);
+  -ms-transform: rotate(0deg) scale(0);
+  transform: rotate(0deg) scale(0);
+  opacity: 1;
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+
+.checkbox-label input:checked ~ .checkbox-custom::after {
+  -webkit-transform: rotate(45deg) scale(1);
+  -ms-transform: rotate(45deg) scale(1);
+  transform: rotate(45deg) scale(1);
+  opacity: 1;
+  left: 6px;
+  top: 3px;
+  width: 3px;
+  height: 7px;
+  border: solid #40505b;
+  border-width: 0 2px 2px 0;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+/* For Ripple Effect */
+.checkbox-label .checkbox-custom::before {
+  position: absolute;
+  content: "";
+  left: 10px;
+  top: 10px;
+  width: 0px;
+  height: 0px;
+  border-radius: 5px;
+  border: 2px solid #40505b;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+}
+
+.checkbox-label input:checked ~ .checkbox-custom::before {
+  left: -3px;
+  top: -3px;
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+  -webkit-transform: scale(3);
+  -ms-transform: scale(3);
+  transform: scale(3);
+  opacity: 0;
+  z-index: 999;
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+
+//
+
+.toggleCheckbox {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  height: 12px;
+  width: 20px;
+  clear: both;
+  border-radius: 30px;
+}
+
+.toggleCheckbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.toggleCheckbox .checkbox-custom {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 12px;
+  width: 20px;
+  border-radius: 30px;
+  background-color: transparent;
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  border: 1px solid #40505b;
+}
+
+.toggleCheckbox input:checked ~ .checkbox-custom {
+  background-color: #1277d9;
+  border-radius: 30px;
+  -webkit-transform: rotate(0deg) scale(1);
+  -ms-transform: rotate(0deg) scale(1);
+  transform: rotate(0deg) scale(1);
+  opacity: 1;
+  border: 1px solid #1277d9;
+}
+
+.toggleCheckbox .checkbox-custom::after {
+  position: absolute;
+  content: "";
+  left: 0px;
+  top: 0px;
+  height: 10px;
+  width: 10px;
+  border-radius: 100%;
+  border: 1px solid #40505b;
+  opacity: 1;
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+
+.toggleCheckbox input:checked ~ .checkbox-custom::after {
+  -webkit-transform: rotate(45deg) scale(1);
+  -ms-transform: rotate(45deg) scale(1);
+  transform: rotate(45deg) scale(1);
+  opacity: 1;
+  left: initial;
+  right: 0;
+  top: 0px;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #1277d9;
+  background-color: transparent;
+  border-radius: 100%;
+  background: #fff;
+}
+
+/* For Ripple Effect */
+.toggleCheckbox .checkbox-custom::before {
+  position: absolute;
+  content: "";
+  left: 10px;
+  top: 10px;
+  width: 0px;
+  height: 0px;
+  border-radius: 5px;
+  border: 1px solid #40505b;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+}
+
+.toggleCheckbox input:checked ~ .checkbox-custom::before {
+  left: -3px;
+  top: -3px;
+  width: 30px;
+  height: 15px;
+  border-radius: 30px;
+  -webkit-transform: scale(3);
+  -ms-transform: scale(3);
+  transform: scale(3);
+  opacity: 0;
+  z-index: 999;
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+.noRightBorder {
+  border-right: 0 !important;
+}
+
+.form-group {
+  &.col {
+    .toggleCheckbox {
+      width: auto;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      margin-top: 20px;
+      .checkbox-custom {
+        position: relative;
+        margin-left: 23px;
+      }
+    }
+  }
 }

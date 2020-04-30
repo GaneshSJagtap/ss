@@ -1,0 +1,60 @@
+@import "./style.mixin.scss";
+
+.theme1 {
+  .wrap {
+    .header {
+      background: #e5e5e5 !important;
+    }
+    .sideBar {
+      background: #033164 !important;
+      .sideMenu {
+        background: #033164 !important;
+      }
+    }
+    .h1,
+    h1,
+    .h2,
+    h2,
+    .h3,
+    h3 {
+      color: #ff6b22 !important;
+    }
+    .h4,
+    h4,
+    .h5,
+    h5,
+    .h6,
+    h6 {
+      color: #099fcb !important;
+    }
+  }
+}
+.theme2 {
+  .wrap {
+    .header {
+      background: #599b20 !important;
+    }
+    .sideBar {
+      background: #a00b35 !important;
+      .sideMenu {
+        background: #a00b35 !important;
+      }
+    }
+    .h1,
+    h1,
+    .h2,
+    h2,
+    .h3,
+    h3 {
+      color: #099fcb !important;
+    }
+    .h4,
+    h4,
+    .h5,
+    h5,
+    .h6,
+    h6 {
+      color: #2822c7 !important;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { Router } from '@angular/router';
 import { HttpService } from 'src/app/layout/services/http.service';
@@ -58,15 +58,15 @@ export class AddfacilityComponent implements OnInit {
   facilities = [];
 
   constructor(public httpService: HttpService, public router: Router) { }
-    facilityform = new FormGroup({
-      facilityName: new FormControl(),
-      contactName: new FormControl(),
-      contactnumber: new FormControl(),
-      country: new FormControl(),
-      state: new FormControl(),
-      city: new FormControl(),
-      zipCode: new FormControl(),
-      address: new FormControl()
+  facilityform = new FormGroup({
+    facilityName: new FormControl(),
+    contactName: new FormControl(),
+    contactnumber: new FormControl(),
+    country: new FormControl(),
+    state: new FormControl(),
+    city: new FormControl(),
+    zipCode: new FormControl(),
+    address: new FormControl()
   });
 
   ngOnInit() {
@@ -90,8 +90,24 @@ export class AddfacilityComponent implements OnInit {
           console.error(error);
         });
   }
- 
+
   cancelFacilityForm() {
     this.facilityform.reset();
   }
+  facilityName = new FormControl('', [
+    Validators.required
+  ])
+  contactName = new FormControl('', [
+    Validators.required
+  ])
+  contactnumber = new FormControl('', [
+    Validators.required
+  ])
+  country = new FormControl('', [
+    Validators.required
+  ])
+  address = new FormControl('', [
+    Validators.required
+  ])
+
 }

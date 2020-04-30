@@ -1,0 +1,9 @@
+@import "../../../../../styles/style.mixin.scss";
+
+.toggleCheckbox input:checked ~ .checkbox-custom {
+  background-color: $State;
+  border: 1px solid $State;
+}
+.toggleCheckbox input:checked ~ .checkbox-custom::after {
+  border: 1px solid $State;
+}

@@ -1,0 +1,10 @@
+<div class="buildingDataTable">
+    <app-ng-data-table
+      [columns]="columns"
+      [rows]="buildings"
+      [hasActionButtons]="hasActionButtons"
+      (rLink)="goToLink($event)"
+      [totalRows]="totalRows"
+    >
+    </app-ng-data-table>
+</div>

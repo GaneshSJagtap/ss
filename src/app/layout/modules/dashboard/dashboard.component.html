@@ -1,0 +1,146 @@
+<div class="pageView">
+  <div class="pageTitleSection">
+    <h1 class="h1">{{ title }}</h1>
+    <!-- <p class="breadcrumb"><a>Client Setup</a> / Add Client Setup</p> -->
+  </div>
+  <div class="infoBoxes d-flex justify-content-space-between">
+    <div class="infoBoxe bin d-flex justify-content-space-between">
+      <p>
+        <span class="icon">
+          <i class="fa fa-trash-o" aria-hidden="true"></i>
+        </span>
+      </p>
+      <p>
+        <span class="infoCount">
+          29
+        </span>
+        Bin full
+      </p>
+    </div>
+    <div class="infoBoxe temperature d-flex justify-content-space-between">
+      <p>
+        <span class="icon">
+          <i class="fa fa-thermometer-full" aria-hidden="true"></i>
+        </span>
+      </p>
+      <p>
+        <span class="infoCount">
+          26
+        </span>
+        Critical <br />
+        Temperature
+      </p>
+    </div>
+    <div class="infoBoxe battery d-flex justify-content-space-between">
+      <p>
+        <span class="icon">
+          <i class="fa fa-battery-quarter" aria-hidden="true"></i>
+        </span>
+      </p>
+      <p>
+        <span class="infoCount">
+          18
+        </span>
+        Low battery
+      </p>
+    </div>
+    <div class="infoBoxe humidity d-flex justify-content-space-between">
+      <p>
+        <span class="icon">
+          <i class="fa fa-tint" aria-hidden="true"></i>
+        </span>
+      </p>
+      <p>
+        <span class="infoCount">
+          19
+        </span>
+        High Humidity
+      </p>
+    </div>
+    <div class="infoBoxe sensor d-flex justify-content-space-between">
+      <p>
+        <span class="icon">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </span>
+      </p>
+      <p>
+        <span class="infoCount">
+          19
+        </span>
+        Sensor not <br />working
+      </p>
+    </div>
+  </div>
+  <section class="detailSection">
+    <div class="row">
+      <div class="barChart">
+        <div class="d-flex  justify-content-space-between mb-20">
+          <div>
+            <h5>Trash Bin Usage</h5>
+          </div>
+          <div class="filters d-flex  justify-content-space-between">
+            <div class="form-group">
+              <select>
+                <option>Select Month</option>
+                <option
+                  *ngFor="let month of months"
+                  [value]="month.monthName"
+                  >{{ month.monthName }}</option
+                >
+              </select>
+            </div>
+            <div class="form-group">
+              <select>
+                <option>Select Facility</option>
+                <option
+                  *ngFor="let facility of facilities"
+                  [value]="facility.facility"
+                  >{{ facility.facility }}</option
+                >
+              </select>
+            </div>
+            <div class="form-group">
+              <select>
+                <option>Select Building</option>
+                <option
+                  *ngFor="let building of buildings"
+                  [value]="building.building"
+                  >{{ building.building }}</option
+                >
+              </select>
+            </div>
+            <div class="form-group">
+              <select>
+                <option>Select Floor</option>
+                <option *ngFor="let floor of floors" [value]="floor.floor">{{
+                  floor.floor
+                }}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <select>
+                <option>Select Bin</option>
+                <option *ngFor="let bin of bins" [value]="bin.bin">{{
+                  bin.bin
+                }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div id="chartdiv" style="width: 100%; height: 350px"></div>
+        <!-- <img [src]="barChart" alt="" /> -->
+      </div>
+    </div>
+  </section>
+  <div class="row d-flex circleChart">
+    <div class="circleChart1 detailSection">
+      <app-binstatus></app-binstatus>
+
+      <!-- <img [src]="circleChart1" alt="" /> -->
+    </div>
+    <div class="circleChart2 detailSection">
+      <!-- <img [src]="circleChart2" alt="" /> -->
+      <app-bincount></app-bincount>
+    </div>
+  </div>
+</div>

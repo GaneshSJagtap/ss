@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormArray, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 
 
@@ -30,6 +30,10 @@ interface BuildingName {
 })
 export class AddzoneComponent implements OnInit {
 
+  zoneform: FormGroup;
+  zoneList: FormArray;
+  newZoneInfo = [];
+
   countries: Country[] = [
     { name: 'India' },
     { name: 'America' },
@@ -48,13 +52,13 @@ export class AddzoneComponent implements OnInit {
     { name: 'Nashil' },
     { name: 'Aurangabad ' },
   ];
-  // facilities: Facility[] = [
-  //   { name: 'Facility 1' },
-  //   { name: 'Facility 2' },
-  //   { name: 'Facility 3' },
-  //   { name: 'Facility 4 ' }
-  // ];
-  facilities = [];
+  facilities: Facility[] = [
+    { name: 'Facility 1' },
+    { name: 'Facility 2' },
+    { name: 'Facility 3' },
+    { name: 'Facility 4 ' }
+  ];
+  // facilities = [];
 
   floors: Floor[] = [
     { name: 'Floor 1' },
@@ -69,20 +73,51 @@ export class AddzoneComponent implements OnInit {
     { name: 'Building Name 4 ' },
   ];
 
-  constructor() { }
+  constructor(private fBuilder: FormBuilder) { }
+
 
   ngOnInit() {
+    this.zoneform = this.fBuilder.group({
+      facilityId: [''],
+      buildingId: [''],
+      zoneDetails: this.fBuilder.array([this.createZone()])
+    });
+    this.zoneList = this.zoneform.get('zoneDetails') as FormArray
   }
-  newZoneInfo = [];
-  addZone() {
-    this.newZoneInfo.push(this.newZoneInfo.length)
+  get zoneFormGroup() {
+    return this.zoneform.get('zoneDetails') as FormArray
   }
 
-  zoneform = new FormGroup({
-    buildingname: new FormControl(),
-    facilityname: new FormControl(),
-    floornumber: new FormControl()
-  });
+  createZone() {
+    return this.fBuilder.group({
+      floornumber: [''],
+      roomZone: ['']
+    })
+  }
+
+  facilityId = new FormControl('', [
+    Validators.required
+  ]);
+  buildingID = new FormControl('', [
+    Validators.required
+  ]);
+  floornumber = new FormControl('', [
+    Validators.required
+  ]);
+  roomZone = new FormControl('', [
+    Validators.required
+  ]);
+
+  addZone() {
+    this.newZoneInfo.push(this.newZoneInfo.length);
+    this.zoneList.push(this.createZone());
+  }
+
+  // zoneform = new FormGroup({
+  //   buildingname: new FormControl(),
+  //   facilityname: new FormControl(),
+  //   floornumber: new FormControl()
+  // });
 
   zoneFormSubmit() {
     if (this.zoneform.invalid) {

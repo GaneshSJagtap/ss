@@ -9,7 +9,9 @@
                             <i class="fa fa-asterisk" aria-hidden="true"></i>
                         </span>
                     </mat-label>
-                    <input matInput formControlName="facilityName" placeholder="Enter Here" />
+                    <input matInput [formControl]="facilityName" placeholder="Enter Here" />
+                    <mat-error *ngIf="facilityName.hasError('required')">Facility Name is <strong>required</strong>
+                    </mat-error>
                 </mat-form-field>
             </div>
             <div class="form-group col">
@@ -20,7 +22,9 @@
                             <i class="fa fa-asterisk" aria-hidden="true"></i>
                         </span>
                     </mat-label>
-                    <input matInput formControlName="contactName" placeholder="Enter Here" />
+                    <input matInput [formControl]="contactName" placeholder="Enter Here" />
+                    <mat-error *ngIf="contactName.hasError('required')">Contact Name is <strong>required</strong>
+                    </mat-error>
                 </mat-form-field>
             </div>
         </div>
@@ -33,7 +37,9 @@
                             <i class="fa fa-asterisk" aria-hidden="true"></i>
                         </span>
                     </mat-label>
-                    <input matInput formControlName="contactnumber" placeholder="Enter Here" />
+                    <input matInput [formControl]="contactnumber" placeholder="Enter Here" />
+                    <mat-error *ngIf="contactnumber.hasError('required')">Contact number is <strong>required</strong>
+                    </mat-error>
                 </mat-form-field>
             </div>
             <div class="form-group col">
@@ -44,12 +50,15 @@
                             <i class="fa fa-asterisk" aria-hidden="true"></i>
                         </span>
                     </mat-label>
-                    <mat-select formControlName="country">
+                    <mat-select [formControl]="country">
                         <mat-option>--</mat-option>
                         <mat-option *ngFor="let country of countries" [value]="country.name">
                             {{country.name}}
                         </mat-option>
                     </mat-select>
+                    <mat-error *ngIf="country.hasError('required')">
+                        Please select <strong>country from list</strong>
+                    </mat-error>
                 </mat-form-field>
             </div>
         </div>
@@ -98,13 +107,16 @@
                             <i class="fa fa-asterisk" aria-hidden="true"></i>
                         </span>
                     </mat-label>
-                    <input matInput formControlName="address" placeholder="Enter Here" />
+                    <input matInput [formControl]="address" placeholder="Enter Here" />
+                    <mat-error *ngIf="address.hasError('required')">Address is <strong>required</strong>
+                    </mat-error>
                 </mat-form-field>
             </div>
         </div>
         <div class="formContainer row d-flex justify-content-end align-items-center cancle-save">
             <a (click)="cancelFacilityForm()">Cancel</a>
-            <button class="defaultBtn purpleBtn" [disabled]="!facilityform.valid">Save</button>
+            <button mat-button
+            class="defaultBtn purpleBtn" [disabled]="!facilityform.valid">Save</button>
         </div>
     </form>
 </div>

@@ -1,0 +1,81 @@
+<div class="pageView">
+  <div class="pageTitleSection">
+    <h1 class="h1">{{ title }}</h1>
+    <p class="breadcrumb">
+      <a routerLink="/role-setup">Role Setup</a> / Add Role
+    </p>
+  </div>
+  <section class="detailSection noPadd">
+    <div class="formSection">
+      <form [formGroup]="addroleform" (ngSubmit)="addroleSubmitForm()">
+        <div class="formContainer row d-flex">
+          <div class="form-group col">
+            <mat-form-field>
+              <mat-label class="mat-label d-flex">
+                Company Name
+              </mat-label>
+              <mat-select>
+                <mat-option
+                  *ngFor="let company of companies"
+                  [value]="company.name"
+                >
+                  {{ company.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="form-group col">
+            <mat-form-field>
+              <mat-label class="mat-label d-flex">
+                <span>Role</span>
+              </mat-label>
+              <input matInput [formControl]="role" placeholder="Enter Here" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="formContainer row d-flex">
+          <div class="col">
+            <h4>Assign Menu</h4>
+            <div class="form-group">
+              <ul>
+                <li>
+                  <h5>Assign Menu</h5>
+                </li>
+                <li *ngFor="let assignmenu of assignmenus">
+                  <div class="d-flex">
+                    <label class="checkbox-label">
+                      <input type="checkbox" />
+                      <span class="checkbox-custom"></span>
+                    </label>
+
+                    {{ assignmenu.menu }}
+
+                    <label class="toggleCheckbox">
+                      <input type="checkbox" />
+                      <span class="checkbox-custom"></span>
+                    </label>
+                  </div>
+
+                  <!-- <div [innerHTML]="checkBox1.html"></div> -->
+                </li>
+              </ul>
+            </div>
+            <div
+              class="formContainer row d-flex justify-content-end align-items-center cancle-save"
+            >
+              <a (click)="cancelAddroleform()">Cancel</a>
+              <button
+                mat-button
+            class="defaultBtn purpleBtn"
+                [disabled]="!addroleform.valid"
+              >
+                Save
+              </button>
+            </div>
+          </div>
+          <div class="form-group col"></div>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>

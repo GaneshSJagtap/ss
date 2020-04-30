@@ -1,0 +1,296 @@
+<div class="pageView">
+  <div class="pageTitleSection">
+    <h1 class="h1">{{ title }}</h1>
+    <p class="breadcrumb"><a>Client Setup</a> / Add Client Setup</p>
+  </div>
+  <section class="detailSection">
+    <div class="add-client">
+      <div class="add-clientFrom">
+        <h4 class="h4">Basic Information</h4>
+        <div class="row d-flex flex-wrap">
+          <div class="form-group">
+            <mat-form-field>
+              <mat-label class="mat-label d-flex">
+                <span>Client Code</span>
+                <span class="redAsterisk">
+                  <i class="fa fa-asterisk" aria-hidden="true"></i>
+                </span>
+              </mat-label>
+              <input matInput placeholder="Enter Here" />
+              <!-- [(ngModel)]="form.clientCode" -->
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field>
+              <mat-label class="mat-label d-flex">
+                <span>Client Name</span>
+                <span class="redAsterisk">
+                  <i class="fa fa-asterisk" aria-hidden="true"></i>
+                </span>
+              </mat-label>
+              <input matInput placeholder="Enter Here" />
+              <!-- [(ngModel)]="form.clientName" -->
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field>
+              <mat-label class="mat-label d-flex">
+                <span>Email</span>
+                <span class="redAsterisk">
+                  <i class="fa fa-asterisk" aria-hidden="true"></i>
+                </span>
+              </mat-label>
+              <input type="email" matInput placeholder="Enter Here" />
+              <!--  [(ngModel)]="form.clientEmail"  -->
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field>
+              <mat-label class="mat-label d-flex">
+                <span>Phone Number</span>
+                <span class="redAsterisk">
+                  <i class="fa fa-asterisk" aria-hidden="true"></i>
+                </span>
+              </mat-label>
+              <input matInput placeholder="Enter Here" />
+              <!-- [(ngModel)]="form.clientPhone" -->
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field>
+              <mat-label class="mat-label d-flex">
+                <span>Fax Number</span>
+                <span class="redAsterisk">
+                  <i class="fa fa-asterisk" aria-hidden="true"></i>
+                </span>
+              </mat-label>
+              <input matInput placeholder="Enter Here" />
+              <!--  [(ngModel)]="form.clientFax" -->
+            </mat-form-field>
+          </div>
+          <div class="form-group d-flex align-item-end">
+            <mat-form-field>
+              <mat-label class="mat-label d-flex">
+                <span>Address</span>
+                <span class="redAsterisk">
+                  <i class="fa fa-asterisk" aria-hidden="true"></i>
+                </span>
+              </mat-label>
+              <input matInput placeholder="Enter Here" />
+              <!-- [(ngModel)]="form.clientAddress" -->
+            </mat-form-field>
+            <a class="add-address">
+              <span class="mapPointer-icon">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+              </span>
+              <span>Add</span>
+            </a>
+          </div>
+        </div>
+        <h4 class="h4">Select Theme</h4>
+        <div class="row">
+          <div
+            class="themes d-flex justify-content-space-between align-items-center"
+          >
+            <a>
+              <i class="fa fa-angle-left" aria-hidden="true"></i>
+            </a>
+            <ul class="themeList">
+              <li>
+                <div class="theme seleted" (click)="activateDefaultTheme()">
+                  <p>Default</p>
+                  <p class="themeColor">
+                    <span class="darkBlue"></span>
+                    <span class="semiLightBlue"></span>
+                    <span class="gray"></span>
+                    <span class="darkGray"></span>
+                  </p>
+                  <p class="font"><span>Font:</span> Proxima Nova</p>
+                  <p class="Select">Select</p>
+                </div>
+              </li>
+              <li>
+                <div class="theme" (click)="activateTheme1()">
+                  <p>Default</p>
+                  <p class="themeColor">
+                    <span class="darkenBlue"></span>
+                    <span class="offWhite"></span>
+                    <span class="orange"></span>
+                    <span class="semiLightBlue"></span>
+                  </p>
+                  <p class="font"><span>Font:</span> Proxima Nova</p>
+                  <p class="Select">Select</p>
+                </div>
+              </li>
+              <li>
+                <div class="theme" (click)="activateTheme2()">
+                  <p>Default</p>
+                  <p class="themeColor">
+                    <span class="brown"></span>
+                    <span class="green"></span>
+                    <span class="semiLightBlue"></span>
+                    <span class="blue"></span>
+                  </p>
+                  <p class="font"><span>Font:</span> Proxima Nova</p>
+                  <p class="Select">Select</p>
+                </div>
+              </li>
+              <li>
+                <div class="theme">
+                  <p>Default</p>
+                  <p class="themeColor">
+                    <span class="lightBlue"></span>
+                    <span class="brown"></span>
+                    <span class="gray"></span>
+                    <span class="darkGray"></span>
+                  </p>
+                  <p class="font"><span>Font:</span> Proxima Nova</p>
+                  <p class="Select">Select</p>
+                </div>
+              </li>
+              <li>
+                <div class="theme">
+                  <p>Default</p>
+                  <p class="themeColor">
+                    <span class="darkBlue"></span>
+                    <span class="semiLightBlue"></span>
+                    <span class="gray"></span>
+                    <span class="darkGray"></span>
+                  </p>
+                  <p class="font"><span>Font:</span> Proxima Nova</p>
+                  <p class="Select">Select</p>
+                </div>
+              </li>
+              <li>
+                <div class="theme">
+                  <p>Default</p>
+                  <p class="themeColor">
+                    <span class="darkBlue"></span>
+                    <span class="semiLightBlue"></span>
+                    <span class="gray"></span>
+                    <span class="darkGray"></span>
+                  </p>
+                  <p class="font"><span>Font:</span> Proxima Nova</p>
+                  <p class="Select">Select</p>
+                </div>
+              </li>
+            </ul>
+            <a>
+              <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <h4 class="h4">Branding Information</h4>
+        <div class="row">
+          <div class="brandingInfo d-flex justify-content-space-between">
+            <div class="logogAndFavicon">
+              <div class="logoFavIcon d-flex">
+                <div
+                  class="logoUpload d-flex dashBorderContainer align-items-center"
+                >
+                  <!-- <div class="form-group">
+                      <label class="upload">
+                        <i class="fa fa-upload" aria-hidden="true"></i>
+                        <input type="file" (change)="uploadLogo($event)" />
+                        <img [src]="logo" alt="" title="" />
+                      </label>
+                    </div> -->
+                  <div class="logoHolder">
+                    <img [src]="largLogo" />
+                  </div>
+                  <div
+                    class="actionIcons d-flex flex-direction-column align-items-center "
+                  >
+                    <a><i class="fa fa-upload" aria-hidden="true"></i></a>
+                    <a><i class="fa fa-times" aria-hidden="true"></i></a>
+                  </div>
+                </div>
+                <div
+                  class="logoUpload d-flex dashBorderContainer align-items-center ml-25"
+                >
+                  <!-- <div class="form-group">
+                                      <label class="upload">
+                                        <i class="fa fa-upload" aria-hidden="true"></i>
+                                        <input type="file" (change)="uploadLogo($event)" />
+                                        <img [src]="logo" alt="" title="" />
+                                      </label>
+                                    </div> -->
+                  <div class="logoHolder">
+                    <img [src]="shortLogo" />
+                  </div>
+                  <div
+                    class="actionIcons d-flex flex-direction-column align-items-center"
+                  >
+                    <a><i class="fa fa-upload" aria-hidden="true"></i></a>
+                    <a><i class="fa fa-times" aria-hidden="true"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="logoLink">
+                <div class="form-group">
+                  <mat-form-field>
+                    <mat-label class="mat-label d-flex">
+                      <span>Logo Redirect Link</span>
+                    </mat-label>
+                    <input matInput placeholder="Logo Redirect Link" />
+                    <!--  [(ngModel)]="form.clientFax" -->
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+            <div class="bannerOuter">
+              <!-- <div class="form-group">
+                                <label class="upload">
+                                  <i class="fa fa-upload" aria-hidden="true"></i>
+                                  <input type="file" (change)="uploadLogo($event)" />
+                                  <img [src]="logo" alt="" title="" />
+                                </label>
+                              </div> -->
+              <div
+                class="brandingBanner dashBorderContainer d-flex  align-items-center"
+              >
+                <div class="logoHolder bannerHolder">
+                  <img [src]="banner" />
+                </div>
+                <div
+                  class="actionIcons d-flex flex-direction-column align-items-center"
+                >
+                  <a><i class="fa fa-upload" aria-hidden="true"></i></a>
+                  <a><i class="fa fa-times" aria-hidden="true"></i></a>
+                </div>
+              </div>
+              <div class="bannerLink d-flex">
+                <div class="form-group">
+                  <mat-form-field>
+                    <mat-label class="mat-label d-flex">
+                      <span>Banner Redirect Link</span>
+                    </mat-label>
+                    <input matInput placeholder="Banner Redirect Link" />
+                    <!--  [(ngModel)]="form.clientFax" -->
+                  </mat-form-field>
+                </div>
+                <div class="form-group">
+                  <mat-form-field>
+                    <mat-label class="mat-label d-flex">
+                      <span>Banner Welcome Text</span>
+                    </mat-label>
+                    <input matInput placeholder="Banner Redirect Link" />
+                    <!--  [(ngModel)]="form.clientFax" -->
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="formContainer row d-flex justify-content-end align-items-center cancle-save"
+        >
+          <a (click)="cancelAddroleform()">Cancel</a>
+          <button mat-button class="defaultBtn purpleBtn ml-25">
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

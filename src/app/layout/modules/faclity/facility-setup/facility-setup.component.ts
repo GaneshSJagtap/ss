@@ -1,58 +1,123 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { Router, ActivatedRoute } from "@angular/router";
+import { ModulesService } from "../../modules.service";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './facility-setup.component.html',
-  styleUrls: ['./facility-setup.component.scss'],
-  host: {
-    '(document:click)': 'onClick($event)',
-  }
+  selector: "app-root",
+  templateUrl: "./facility-setup.component.html",
+  styleUrls: ["./facility-setup.component.scss"]
 })
-
-
 export class FacilitySetupComponent implements OnInit {
-  title = 'Facility Setup';
+  public href: string = "";
+  title = "Facility Setup";
   faSearch = faSearch;
   status = false;
+  hasActionButtons: boolean = true;
+  hasActions: boolean = true;
 
-  columns: Array<any> = [{ title: 'ID', key: 'id', sortable: false, link: true, },
-  { title: 'Number', key: 'num', sortable: false, },
-  { title: 'Amount', key: 'amount', sortable: false, },
-  { title: 'ClientId', key: 'clientId', sortable: false, },
-  { title: 'Description', key: 'description', sortable: false, isTag: false, linkRed: true }
-  ];
-  policys = [
-    { id: 1, num: 'PO1', amount: 1000, userId: 1, clientId: 1, description: 'Insurance policy number PO1' },
-    { id: 2, num: 'PO2', amount: 2000, userId: 1, clientId: 2, description: 'Insurance policy number PO2' },
-    { id: 3, num: 'PO3', amount: 3000, userId: 1, clientId: 3, description: 'Insurance policy number PO3' },
-    { id: 4, num: 'PO4', amount: 4000, userId: 1, clientId: 4, description: 'Insurance policy number PO4' }
-  ];
+  searchParameter: any;
 
+  columns: Array<any> = [
+    {
+      title: "Facility Name",
+      key: "facilityName",
+      sortable: true,
+      link: true,
+      filter: true
+    },
+    {
+      title: "Contact Number",
+      key: "contactNumber",
+      sortable: true,
+      filter: true
+    },
+    { title: "City", key: "city", sortable: true, filter: true },
+    { title: "State", key: "state", sortable: true, filter: true },
+    { title: "Country", key: "country", sortable: true, filter: true }
+  ];
+  facilities = [
+    {
+      facilityName: "Exela Pune",
+      contactNumber: "90598 96569",
+      city: "Pune",
+      state: "Maharashtra",
+      country: "India"
+    },
+    {
+      facilityName: "Exela Pune",
+      contactNumber: "0547B 52365",
+      city: "Pune",
+      state: "Maharashtra",
+      country: "India"
+    },
+    {
+      facilityName: "ExeLa Albany",
+      contactNumber: "80569 52147",
+      city: "ALbany",
+      state: "New York",
+      country: "USA"
+    },
+    {
+      facilityName: "ExeLa Albany",
+      contactNumber: "00147 52100",
+      city: "Affiany",
+      state: "New York",
+      country: "United States"
+    },
+    {
+      facilityName: "ExeLa Albany",
+      contactNumber: "90632 51458",
+      city: "ALbany",
+      state: "New York",
+      country: "United States"
+    },
+    {
+      facilityName: "Exela Pune",
+      contactNumber: "00569 52147",
+      city: "Pune",
+      state: "Maharashtra",
+      country: "India"
+    },
+    {
+      facilityName: "Exela Mumbai",
+      contactNumber: "98658 51147",
+      city: "Mumbai",
+      state: "Maharashtra",
+      country: "India"
+    }
+  ];
 
   // public policys
   constructor(
     private router: Router,
-    private _eref: ElementRef
-  ) { }
+    private activatedRoute: ActivatedRoute,
+    private modulesService: ModulesService
+  ) {}
 
   ngOnInit() {
+    // this.modulesService.$getpath.subscribe(val => {
+    //   this.href = this.activatedRoute.snapshot.url[0].path;
+    // });
+  }
+
+  goToLink(row: any, column: any) {
+    this.href = this.activatedRoute.snapshot.url[0].path;
+    console.log(this.href, "facility component");
   }
 
   toggleDropdown() {
     this.status = !this.status;
   }
-  gotoaddfacility() {
-    alert('Hi');
-    this.router.navigate(['/facility-setup/add-facility']);
-  }
-  onClick() {
-    if (!this._eref.nativeElement.contains(event.target)) {
-      // this.status = false;
-    }
-  }
   onClickedOutside(e: Event) {
     this.status = false;
   }
+  // gotoaddfacility() {
+  //   alert('Hi');
+  //   console.log('clicked')
+  //   this.router.navigate(['/facility-setup/add-facility']);
+  // }
+  // onClickedOutside(e: Event) {
+  //   this.status = false;
+  // }
 }

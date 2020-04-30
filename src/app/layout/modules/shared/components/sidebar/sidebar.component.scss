@@ -1,116 +1,120 @@
-@import './../../../../../../styles/style.mixin';
+@import "./../../../../../../styles/style.mixin";
 
 .sideMenu {
-    background: $sideBarBg; 
-    height: 100%;
-    position: relative;
-    flex-basis: 64px;
-    max-width: 64px;
-    transition: 0.5s ease all;
-    .hamburgMenu{
-        position: absolute;
-        margin: 0;
-        left: 250px;
-        top: 25px;
+  background: $sideBarBg;
+  height: 100%;
+  position: relative;
+  width: 64px;
+  transition: 0.5s ease all;
+  .hamburgMenu {
+    position: absolute;
+    margin: 0;
+    left: 250px;
+    top: 25px;
+  }
+  .logo {
+    height: 64px;
+    background: $white;
+    img {
+      max-width: 100%;
+      transition: 0.5s ease all;
     }
-    .logo {
-        height: 70px;
-        background: $white;
-        img {
-            max-width: 100%;
-        }
-    }
-    .menu{
-        ul {
-            list-style: none;
+  }
+  .menu {
+    ul {
+      list-style: none;
+      margin: $s0;
+      padding: $s0;
+      li {
+        a {
+          display: block;
+          padding: $s14 $s18;
+          color: $white;
+          font-weight: $weight300;
+          font-size: $s14;
+          text-decoration: none;
+          position: relative;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          .ng-fa-icon,
+          .fa {
+            color: $white;
+            font-size: $s19;
+            min-width: 24px;
+          }
+          .menuIcon {
+            width: $s20;
+          }
+          .menuTitle {
+            padding: $s0 $s0 $s0 $s12;
+            transition: 0.5s ease all;
+            position: absolute;
+            left: -999px;
+            opacity: 0;
+            top: calc(50% - 8px);
             margin: $s0;
-            padding: $s0;
-            li{
-                a {
-                    display: block;
-                    padding: $s14 $s18;
-                    color: $white;
-                    font-weight: $weight300;
-                    font-size: $s14;
-                    text-decoration: none;
-                    position: relative;
-                    display: flex;
-                    align-items: center;
-                    cursor: pointer;
-                    .ng-fa-icon,
-                    .fa {
-                        color: $white;
-                        font-size: $s16;
-                        width: 20px;
-                    }
-                    .menuIcon {
-                        width: $s20;
-                    }
-                    .menuTitle {
-                        padding: $s0 $s0 $s0 $s12;
-                        transition: 0.5s ease all;
-                        position: absolute;
-                        left: -999px;
-                        opacity: 0;
-                        top: calc(50% - 8px);
-                        margin: $s0;
-                        white-space: nowrap;
-                        overflow: hidden;
-                    }
-                    &:hover {
-                        background: #124e73;
-                        .menuTitle {
-                            @include for-phone-only {
-                                left: 55px;
-                                padding: 15.5px 0;
-                            }
-                            left: 64px;
-                            opacity: 1;
-                            background: #124e73;
-                            color: $white;
-                            width: 160px;
-                            text-align: center;
-                            padding: $s15 $s0;
-                            top: 0; 
-                            z-index: 99;
-                            &:after {
-                                @include pseudo;
-                            }
-                        }
-                    }
-                }
+            white-space: nowrap;
+            overflow: hidden;
+          }
+          &:hover {
+            background: #124e73;
+            .menuTitle {
+              @include for-phone-only {
+                left: 55px;
+                padding: 15.5px 0;
+              }
+              left: 56px;
+              opacity: 1;
+              background: #124e73;
+              color: $white;
+              width: 160px;
+              text-align: center;
+              // padding: $s15 $s0;
+              top: 0;
+              z-index: 99;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              height: 100%;
+              &:after,
+              &:before {
+                @include pseudo;
+              }
             }
+          }
         }
+      }
     }
-    &.open {
-    flex-basis: 230px;
-    max-width: 230px;
-        .menu {
-            ul {
-                li {
-                    a {
-                        .menuTitle {
-                            opacity: 1;
-                            left: 34px;
-                            position: static;
-                            padding: $s0 $s0 $s0 $s12;
-                            white-space: nowrap;
-                            overflow: hidden;
-                        }
-                        &:hover {
-                            .menuTitle {
-                                position: static;
-                                opacity: 1;
-                                background: transparent;
-                                left: 0;
-                                color: $white;
-                                width: auto;
-                            }
-                        }
-                    }
-                }
+  }
+  &.open {
+    width: 230px;
+    .menu {
+      ul {
+        li {
+          a {
+            .menuTitle {
+              opacity: 1;
+              left: 38px;
+              position: static;
+              padding: $s0 $s0 $s0 $s12;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
             }
+            &:hover {
+              .menuTitle {
+                position: static;
+                opacity: 1;
+                background: transparent;
+                left: 0;
+                color: $white;
+                width: auto;
+              }
+            }
+          }
         }
+      }
     }
+  }
 }
-    

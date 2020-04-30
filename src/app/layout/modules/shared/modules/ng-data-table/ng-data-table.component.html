@@ -1,40 +1,157 @@
 <div class="ng-data-table-wrap">
-    <div class="top-toolbar-wrap">
-        <div class="extra-toolbar">
-            <ng-content select="[button-toolbar]"></ng-content>
-        </div>
-        <div class="all-search-box" *ngIf="searchBox">
-            <label><input type="search" placeholder="Search" (keyup)="search()" #filterInputs /></label>
-        </div>
-        <div class="clearfix"></div>
+  <div class="top-toolbar-wrap">
+    <div class="extra-toolbar">
+      <ng-content select="[button-toolbar]"></ng-content>
     </div>
-    <table class="table table-responsive">
-        <thead>
-            <tr>
-                <th *ngFor="let column of columns; let i = index">
-                    <div>
-                    {{column.title}}
-                    </div>
-                </th>
-                <th>
-                Action
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let row of rows; let i = index;">
-                <td *ngFor="let column of columns">
-                    <div>
-                        {{echo(row, column)}}
-                    </div>
-                </td>
-                <td>
-                <i *ngIf="showEdit" class="fa fa-pencil-square-o" aria-hidden="true" (click)="edit(row)"></i>
-                <!-- <i *ngIf="showView" class="fa fa-eye" aria-hidden="true" (click)="showDetails(row)"></i>
-                <i class="fa fa-trash" aria-hidden="true"></i>  -->
-                x
-                </td>
-            </tr>
-        </tbody>
+    <div class="all-search-box" *ngIf="searchBox">
+      <label
+        ><input
+          type="search"
+          placeholder="Search"
+          (keyup)="search()"
+          #filterInputs
+      /></label>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+
+  <div class="table-wrap-fnc">
+    <table class="responsive">
+      <thead>
+        <tr>
+          <th
+            *ngFor="let column of columns; let i = index"
+            [attr.id]="column.key"
+            [class.sortable]="column.sortable"
+            width="210"
+          >
+            <div (click)="sort(column.key)" class="d-flex">
+              <div>{{ column.title }}</div>
+              <div class="sort-arrows" *ngIf="column.sortable">
+                <i class="fa fa-sort" *ngIf="column.key != sortColumn"></i>
+                <i
+                  class="fa fa-sort-asc"
+                  *ngIf="column.key == sortColumn && isDesc == false"
+                ></i>
+                <i
+                  class="fa fa-sort-desc"
+                  *ngIf="column.key == sortColumn && isDesc == true"
+                ></i>
+              </div>
+            </div>
+            <div>
+              <input
+                *ngIf="column.filter"
+                class="filter-input"
+                type="text"
+                placeholder="Filter"
+                [attr.datacolumn]="column.key"
+                (keyup)="searchByColumn(column.key)"
+                #filterInputs
+              />
+            </div>
+            <!-- <mat-form-field style="height: 24px;" *ngIf="column.dateTimefilter">
+                            <input matInput class="filter-input" [matDatepicker]="picker" #filterInputs
+                                [attr.datacolumn]="column.key" (keyup)="searchByColumn(column.key)"
+                                (dateChange)="searchByDate(column.key)">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field> -->
+            <div *ngIf="!column.filter" style="height: 35px;"></div>
+          </th>
+          <th *ngIf="hasActionButtons" width="90">
+            Action
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rows; let i = index; trackBy: trackByFn">
+          <td
+            *ngFor="let column of columns"
+            [attr.data-title]="column.title"
+            [class.link]="column.link"
+            tabindex="0"
+          >
+            <div
+              *ngIf="column.key !== 'displayStatus'; else other"
+              (click)="goToLink(row, column)"
+              [attr.title]="row[column.key]"
+            >
+              {{ echo(row, column) }}
+            </div>
+            <ng-template #other>
+              <div [attr.title]="row[column.key]">
+                {{ echo(row, column) }}
+              </div>
+            </ng-template>
+          </td>
+          <td *ngIf="hasActionButtons" class="actionBtns">
+            <i
+              *ngIf="showView"
+              class="fa fa-eye"
+              aria-hidden="true"
+              (click)="showDetails(row)"
+            ></i>
+            <i
+              *ngIf="showEdit"
+              class="fa fa-pencil center"
+              aria-hidden="true"
+              (click)="edit(row)"
+            ></i>
+            <i *ngIf="showDelete" class="fa fa-trash-o" aria-hidden="true"></i>
+          </td>
+        </tr>
+        <tr *ngIf="rows.length == 0" class="no-records-row">
+          <td
+            *ngIf="!hasActions"
+            [attr.colspan]="columns.length + 1"
+            class="no-records"
+            tabindex="0"
+          >
+            <img src="assets/images/noDataFound.png" alt="No Data Found" />
+          </td>
+          <td
+            *ngIf="hasActions"
+            [attr.colspan]="columnsLength"
+            class="no-records"
+            tabindex="0"
+          >
+            <img src="assets/images/noDataFound.png" alt="No Data Found" />
+          </td>
+        </tr>
+      </tbody>
     </table>
+  </div>
+  <div class="bottom-bar-wrap d-flex justify-content-end">
+    <div
+      class="table-info mr-auto"
+      *ngIf="totalRows !== 0"
+      tabindex="0"
+      href="javascript:void(0);"
+    >
+      Displaying item : 1 - 10 of {{ totalRows }}
+    </div>
+    <div class="d-flex align-items-center">
+      <div class="per-page-select-wrap">
+        <select (change)="onPerPage($event)">
+          <option value="10">10</option>
+          <option value="25">25</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select>
+      </div>
+      <div class="pagination-wrap">
+        <div class="compact-theme simple-pagination">
+          <ul>
+            <li class="disabled"><span class="prev">Prev</span></li>
+            <li class="active"><span class="current">1</span></li>
+            <li><a class="page-link">2</a></li>
+            <li><a class="page-link">3</a></li>
+            <li><a class="page-link">4</a></li>
+            <li><a class="page-link next">Next</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

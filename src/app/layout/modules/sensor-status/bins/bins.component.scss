@@ -1,0 +1,11 @@
+@import "../../../../../styles/style.mixin.scss";
+
+.detailSection {
+  h5 {
+    font-weight: $weight500;
+    margin-bottom: 15px;
+  }
+  a {
+    font-size: $s14;
+  }
+}

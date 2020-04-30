@@ -1,0 +1,48 @@
+<div class="pageView">
+  <div class="pageTitleSection">
+    <h1 class="h1">{{ title }}</h1>
+  </div>
+  <section class="detailSection">
+    <div class="search-addnew-section d-flex justify-content-end">
+      <div class="mr-auto">
+        <div class="individual-group d-flex">
+          <a
+            [ngClass]="{ active: individualComponent == true }"
+            (click)="individual()"
+            >Individual</a
+          >
+          <a [ngClass]="{ active: groupComponent == true }" (click)="group()"
+            >Group</a
+          >
+        </div>
+      </div>
+      <div class="search-input form-group d-flex align-items-end">
+        <span>
+          <fa-icon [icon]="faSearch"></fa-icon>
+        </span>
+        <input matInput #filter placeholder="Search" />
+      </div>
+      <div class="add-new">
+        <div class="addNewFacilityDropdown">
+          <button
+            mat-button
+            class="defaultBtn purpleBtn"
+            (click)="goToAddNewAllocation()"
+          >
+            Add New
+          </button>
+          <div class="addNewFacilitymenu" [ngClass]="status ? 'open' : 'close'">
+            <a class="facilitymenuItem" href="#">Upload List</a>
+            <a class="facilitymenuItem" routerLink="/facility/add-facility"
+              >Manual</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <app-individual *ngIf="individualComponent"></app-individual>
+      <app-group *ngIf="groupComponent"></app-group>
+    </div>
+  </section>
+</div>

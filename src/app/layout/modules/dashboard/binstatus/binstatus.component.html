@@ -1,0 +1,38 @@
+<div class="barChart">
+  <div class="d-flex  justify-content-space-between mb-20">
+    <div>
+      <h5>Bin Status</h5>
+    </div>
+    <div class="filters d-flex  justify-content-space-between">
+      <div class="form-group">
+        <select>
+          <option>Select Facility</option>
+          <option
+            *ngFor="let facility of facilities"
+            [value]="facility.facility"
+            >{{ facility.facility }}</option
+          >
+        </select>
+      </div>
+      <div class="form-group">
+        <select>
+          <option>Select Building</option>
+          <option
+            *ngFor="let building of buildings"
+            [value]="building.building"
+            >{{ building.building }}</option
+          >
+        </select>
+      </div>
+      <div class="form-group">
+        <select>
+          <option>Select Floor</option>
+          <option *ngFor="let floor of floors" [value]="floor.floor">{{
+            floor.floor
+          }}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="binStatus" style="width: 100%; height: 245px"></div>
